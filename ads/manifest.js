@@ -6,10 +6,6 @@ window.POKAYOKE_ADS = [
     alt: 'pokayoke ad. The caption, in quotes like a prompt: "No exploits in my repo. Make no mistakes." Below it, a security-camera still of a worker on a high ledge whose harness line is clipped to a hook held to the wall with clear tape, the hook circled in red. A prompt isn\'t a safety line. pokayoke attacks every push and runs an exploit against what it finds. Find exploits before attackers do. pokayoke.sh',
   },
   {
-    id: 'PKY-0012',
-    alt: 'pokayoke ad. Terminator vision: a red machine-vision view of a login handler, a target locked on its SQL query reading SQL injection, exploit proven, CVSS 9.8 critical, and a possible-response list of ignore, LGTM and the chosen send fix privately. Bottom text: Have them on your side. pokayoke. Find exploits before attackers do. pokayoke.sh',
-  },
-  {
     id: 'PKY-0011',
     alt: 'pokayoke ad. The Terminator 2 minigun scene: the T-800, labelled pokayoke, firing a minigun. Bottom text: Have them on your side. pokayoke. Find exploits before attackers do. pokayoke.sh',
   },
