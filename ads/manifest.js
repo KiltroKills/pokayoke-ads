@@ -2,8 +2,12 @@
 // Images live at ads/<id>/<ratio>.png; alt is read aloud in place of the image.
 window.POKAYOKE_ADS = [
   {
+    id: 'PKY-0017',
+    alt: 'pokayoke ad. Stay Safe. Over a close-up of the Terminator waxwork at Madame Tussauds London: half the face torn back to a chrome skull with a glowing red eye, in front of a burning red backdrop.',
+  },
+  {
     id: 'PKY-0016',
-    alt: 'pokayoke ad. Stay Safe. Over the Terminator 2 opening: a chrome robot skull with glowing red eyes in close-up, an army of robot skeletons marching through the smoke behind it.',
+    alt: 'pokayoke ad. Stay Safe. Over the I, Robot army: rows of identical white humanoid robots standing in a warehouse, the one at the front staring at the camera.',
   },
   {
     id: 'PKY-0015',
