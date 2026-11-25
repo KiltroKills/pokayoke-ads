@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en" data-ratio="16x9">
+<head>
+<meta charset="utf-8">
+<title>pokayoke ad PKY-0005</title>
+<script>
+  const ratio = new URLSearchParams(location.search).get('ratio');
+  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+</script>
+<link rel="stylesheet" href="../../brand/tokens.css">
+<!--
+  Meme: the user's grim-reaper-at-the-doors image (meme.png, 1440x1064). Plates sit on the doors at
+  positions measured on that image. Receipts:
+  GitHub: https://techcrunch.com/2026/05/20/github-says-hackers-stole-data-from-thousands-of-internal-repositories/
+  Meta: https://www.securityweek.com/meta-says-hackers-took-code-personal-data-of-1500-in-github-breach/
+-->
+<style>
+  :root { --frame-w: 960px; --frame-h: 540px; }
+  [data-ratio="4x5"] { --frame-w: 540px; --frame-h: 675px; }
+  [data-ratio="9x16"] { --frame-w: 540px; --frame-h: 960px; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--color-canvas); }
+  body {
+    width: var(--frame-w);
+    height: var(--frame-h);
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  p, h1, h2 { margin: 0; }
+
+  .ad {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas: "meme" "panel";
+  }
+  [data-ratio="16x9"] .ad {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: 100%;
+    grid-template-areas: "meme panel";
+  }
+  [data-ratio="9x16"] .ad {
+    grid-template-rows: auto auto minmax(0, 1fr);
+    grid-template-areas: "hook" "meme" "panel";
+  }
+
+  /* The meme, with plates placed in its own coordinates (cqw = 1% of the meme's width) */
+  .meme { grid-area: meme; position: relative; container-type: inline-size; line-height: 0; }
+  [data-ratio="16x9"] .meme { height: 100%; aspect-ratio: 1440 / 1064; }
+  .meme img { width: 100%; height: auto; display: block; }
+  [data-ratio="16x9"] .meme img { height: 100%; width: auto; }
+  .plate {
+    position: absolute;
+    transform: translateX(-50%);
+    display: grid;
+    place-items: center;
+    padding: 0.7cqw 0.9cqw;
+    background: var(--color-surface);
+    color: var(--color-ink);
+    border: 0.25cqw solid var(--color-ink);
+    border-radius: var(--radius-control);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .plate-github { left: 10.8%; top: 28%; font-size: 2.15cqw; }
+  .plate-meta { left: 38.6%; top: 24.5%; font-size: 3cqw; padding-inline: 1.6cqw; }
+  .plate-repo {
+    left: 83.6%;
+    top: 23%;
+    font-size: 3.1cqw;
+    padding: 1.1cqw 1.4cqw;
+    background: var(--color-ink);
+    color: var(--color-on-ink);
+  }
+
+  /* Hook, receipts and lockup. The hook sits above the meme in 9:16 and inside the panel otherwise. */
+  .ad > .hook { display: none; }
+  [data-ratio="9x16"] .ad > .hook { display: block; }
+  .hook {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -1.8px;
+    line-height: 1;
+  }
+  [data-ratio="9x16"] .hook {
+    grid-area: hook;
+    padding: var(--space-48) var(--space-40) var(--space-32);
+    font-size: 72px;
+    letter-spacing: -2.8px;
+  }
+  .panel {
+    grid-area: panel;
+    min-height: 0;
+    padding: var(--space-32);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-20);
+  }
+  [data-ratio="16x9"] .panel { padding: var(--space-32) var(--space-24); gap: var(--space-24); }
+  [data-ratio="4x5"] .panel { padding: var(--space-24) var(--space-32); gap: var(--space-16); }
+  [data-ratio="9x16"] .panel { padding: var(--space-32) var(--space-40) var(--space-40); gap: var(--space-24); }
+  [data-ratio="9x16"] .panel .hook { display: none; }
+
+  .receipts { display: grid; gap: var(--space-12); }
+  [data-ratio="9x16"] .receipts { gap: var(--space-16); }
+  .receipt { display: grid; gap: var(--space-2); font-size: 13px; line-height: 1.4; }
+  .receipt-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-12); }
+  .receipt-name { font-weight: 750; font-size: 15px; letter-spacing: -0.01em; }
+  .receipt-when { color: var(--color-muted); white-space: nowrap; }
+  .receipt-what { color: var(--color-muted); text-wrap: pretty; }
+  [data-ratio="16x9"] .receipt-head { flex-direction: column; gap: 0; }
+  [data-ratio="4x5"] .receipts { grid-template-columns: 1fr 1fr; column-gap: var(--space-24); }
+  [data-ratio="9x16"] .receipt { font-size: 17px; }
+  [data-ratio="9x16"] .receipt-name { font-size: 20px; }
+
+  .sign {
+    margin-top: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-16);
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--color-hairline);
+  }
+  [data-ratio="16x9"] .sign,
+  [data-ratio="9x16"] .sign { flex-direction: column; align-items: flex-start; gap: var(--space-12); }
+  [data-ratio="9x16"] .sign { gap: var(--space-16); padding-top: var(--space-24); }
+  .lockup { display: flex; align-items: center; gap: var(--space-12); }
+  .lockup svg { width: 36px; height: 36px; flex: none; }
+  .wordmark { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .byline { margin-top: var(--space-4); font-size: 13px; font-weight: 500; color: var(--color-muted); line-height: 1.2; }
+  .tagline { font-size: 14px; font-weight: 600; text-align: right; line-height: 1.35; }
+  .tagline .url { display: block; font-family: var(--font-mono); font-weight: 400; color: var(--color-muted); }
+  [data-ratio="16x9"] .tagline,
+  [data-ratio="9x16"] .tagline { text-align: left; }
+  [data-ratio="9x16"] .lockup svg { width: 44px; height: 44px; }
+  [data-ratio="9x16"] .wordmark { font-size: 28px; }
+  [data-ratio="9x16"] .byline { font-size: 14px; }
+  [data-ratio="9x16"] .tagline { font-size: 20px; }
+</style>
+</head>
+<body>
+<main class="ad">
+  <h1 class="hook" data-slot="top">Who's next?</h1>
+
+  <div class="meme">
+    <img src="meme.png" width="1440" height="1064" alt="">
+    <span class="plate plate-github">GitHub</span>
+    <span class="plate plate-meta">Meta</span>
+    <span class="plate plate-repo">YOUR REPO</span>
+  </div>
+
+  <section class="panel">
+    <h1 class="hook">Who's next?</h1>
+    <div class="receipts">
+      <article class="receipt">
+        <p class="receipt-head"><span class="receipt-name">GitHub</span><span class="receipt-when">May 2026, TechCrunch</span></p>
+        <p class="receipt-what">Hackers stole data from about 3,800 internal repositories.</p>
+      </article>
+      <article class="receipt">
+        <p class="receipt-head"><span class="receipt-name">Meta</span><span class="receipt-when">Oct 2026, SecurityWeek</span></p>
+        <p class="receipt-what">A stolen login let hackers take source code from its GitHub repos.</p>
+      </article>
+    </div>
+    <footer class="sign">
+      <div class="lockup">
+        <svg viewBox="1 1 22 22" aria-hidden="true"><path d="M8.1 3.9A9 9 0 0 0 8.1 20.1M15.9 3.9A9 9 0 0 1 15.9 20.1" fill="none" stroke="#111212" stroke-width="3" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" fill="#0B59FE"/></svg>
+        <div>
+          <p class="wordmark">pokayoke</p>
+          <p class="byline">by EZO Labs Security</p>
+        </div>
+      </div>
+      <p class="tagline">Find exploits before attackers do.<span class="url">pokayoke.sh</span></p>
+    </footer>
+  </section>
+</main>
+</body>
+</html>
