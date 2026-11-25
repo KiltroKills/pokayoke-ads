@@ -1068,4 +1068,31 @@ window.POKAYOKE_MEMES = [
     rights: 'ask',
     rightsNote: 'A Terminator 3 film still of Arnold Schwarzenegger: skip for paid ads unless licensed.',
   },
+
+  // An animated GIF, not an imgflip template: the still is the GIF's last scene, saved from i.redd.it/foqe2bvzbi8a1.gif.
+  {
+    id: 'MEME-62',
+    slug: 'vicious-cycle',
+    name: "It's a vicious cycle (cat fixing leaky pipes)",
+    alt: 'A white cartoon cat beside a burst pipe pouring water, after each leak it stopped opened a bigger one.',
+    category: 'protection',
+    angle: 'A prompt as protection',
+    pick: true,
+    fit: 'Every leak the cat stops opens a bigger one: asking the agent nicely is the paw on the pipe.',
+    panels: [
+      ['Caption', 'Chat, no exploits pls.'],
+      ['The cat', 'Your agent, told to write no exploits'],
+    ],
+    line: "Asking nicely isn't a fix. pokayoke runs an exploit against every push and shows you what leaks.",
+    ad: 'PKY-0018',
+    rights: 'redraw',
+    rightsNote: 'Footage from a cartoon whose studio is not credited in the post: license the clip or reanimate the cat and pipes for paid ads.',
+    proof: {
+      points: 6920,
+      what: 'this exact GIF captioned "Fixing bugs in your code"',
+      posted: 'Dec 2022',
+      counted: 'Nov 25, 2026',
+      url: 'https://www.reddit.com/r/ProgrammerHumor/comments/zwjbb7/its_a_vicious_cycle/',
+    },
+  },
 ];

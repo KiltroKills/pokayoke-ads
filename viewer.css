@@ -148,6 +148,7 @@ body[data-ratio="9x16"] { --col: 280px; }
 }
 .ad { scroll-margin-top: calc(var(--bar-h) + var(--space-16)); }
 .ad img,
+.ad video,
 .ad-missing {
   display: block;
   width: 100%;

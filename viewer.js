@@ -1,6 +1,7 @@
 // Ad gallery: shows every ad in ads/manifest.js (newest first), each with its ID and a Download link.
 // The ratio switch applies to all ads; ?ratio=4x5 links a frame, #PKY-0001 links one ad.
-// Images live at ads/<id>/<ratio>.png.
+// Images live at ads/<id>/<ratio>.png. An animated ad (`video: true`) also has ads/<id>/<ratio>.mp4: it plays
+// muted and looping while it is on screen, with the PNG as its poster, and Download saves the MP4.
 const RATIOS = { '16x9': [1920, 1080], '4x5': [1080, 1350], '9x16': [1080, 1920] };
 const LABELS = { '16x9': '16:9', '4x5': '4:5', '9x16': '9:16' };
 const ADS = window.POKAYOKE_ADS ?? [];
@@ -14,15 +15,51 @@ const gallery = document.getElementById('gallery');
 const empty = document.getElementById('empty');
 const buttons = [...document.querySelectorAll('.ratios button')];
 
+// Videos play only while on screen. With reduced motion they hold the poster and show controls instead.
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const onScreen = new WeakSet();
+const watcher = new IntersectionObserver(
+  (entries) => {
+    for (const { target, isIntersecting } of entries) {
+      if (isIntersecting) {
+        onScreen.add(target);
+        autoplay(target);
+      } else {
+        onScreen.delete(target);
+        target.pause();
+      }
+    }
+  },
+  { threshold: 0.25 },
+);
+function autoplay(video) {
+  if (reduceMotion.matches || !onScreen.has(video)) return;
+  video.play().catch(() => {});
+}
+
 function buildItem(ad, index) {
   const li = document.createElement('li');
   li.className = 'ad';
   li.id = ad.id;
+  const alt = ad.alt ?? `pokayoke ad ${ad.id}`;
 
-  const img = document.createElement('img');
-  img.alt = ad.alt ?? `pokayoke ad ${ad.id}`;
-  img.decoding = 'async';
-  img.loading = index < 2 ? 'eager' : 'lazy';
+  let media;
+  if (ad.video) {
+    media = document.createElement('video');
+    media.muted = true;
+    media.defaultMuted = true;
+    media.loop = true;
+    media.playsInline = true;
+    media.preload = 'none';
+    media.controls = reduceMotion.matches;
+    media.setAttribute('aria-label', alt);
+    watcher.observe(media);
+  } else {
+    media = document.createElement('img');
+    media.alt = alt;
+    media.decoding = 'async';
+    media.loading = index < 2 ? 'eager' : 'lazy';
+  }
 
   const missing = document.createElement('p');
   missing.className = 'ad-missing';
@@ -38,15 +75,15 @@ function buildItem(ad, index) {
   link.innerHTML = `${DOWNLOAD_ICON}<span>Download</span>`;
   meta.append(id, link);
 
-  li.append(img, missing, meta);
+  li.append(media, missing, meta);
 
-  img.addEventListener('error', () => {
-    img.hidden = true;
+  media.addEventListener('error', () => {
+    media.hidden = true;
     missing.hidden = false;
     link.setAttribute('aria-disabled', 'true');
     link.removeAttribute('href');
   });
-  return { ad, li, img, missing, link };
+  return { ad, li, media, missing, link };
 }
 
 const items = ADS.map(buildItem);
@@ -55,22 +92,34 @@ empty.hidden = items.length > 0;
 
 function render() {
   const [width, height] = RATIOS[ratio];
-  for (const { ad, img, missing, link } of items) {
-    const src = `ads/${ad.id}/${ratio}.png`;
-    img.hidden = false;
+  for (const { ad, media, missing, link } of items) {
+    const still = `ads/${ad.id}/${ratio}.png`;
+    const file = ad.video ? `ads/${ad.id}/${ratio}.mp4` : still;
+    media.hidden = false;
     missing.hidden = true;
     missing.textContent = `${ad.id} has no ${LABELS[ratio]} version yet.`;
     link.removeAttribute('aria-disabled');
-    img.width = width;
-    img.height = height;
-    img.src = src;
-    link.href = src;
-    link.download = `pokayoke-${ad.id}-${ratio}.png`;
-    link.setAttribute('aria-label', `Download ${ad.id} ${LABELS[ratio]}`);
+    media.width = width;
+    media.height = height;
+    if (ad.video) media.poster = still;
+    media.src = file;
+    if (ad.video) autoplay(media);
+    link.href = file;
+    link.download = `pokayoke-${ad.id}-${ratio}.${ad.video ? 'mp4' : 'png'}`;
+    link.setAttribute('aria-label', `Download ${ad.id} ${LABELS[ratio]}${ad.video ? ' video' : ''}`);
   }
   document.body.dataset.ratio = ratio;
   for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.ratio === ratio));
 }
+
+reduceMotion.addEventListener('change', () => {
+  for (const { ad, media } of items) {
+    if (!ad.video) continue;
+    media.controls = reduceMotion.matches;
+    if (reduceMotion.matches) media.pause();
+    else autoplay(media);
+  }
+});
 
 for (const b of buttons) {
   b.addEventListener('click', () => {

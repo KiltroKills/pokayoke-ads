@@ -1,6 +1,12 @@
 // Every published ad, newest first. The gallery (index.html) shows each one in this order.
 // Images live at ads/<id>/<ratio>.png; alt is read aloud in place of the image.
+// video: true marks an animated ad: the gallery plays ads/<id>/<ratio>.mp4 with the PNG as its poster.
 window.POKAYOKE_ADS = [
+  {
+    id: 'PKY-0018',
+    video: true,
+    alt: 'pokayoke video ad, 10 seconds, looping. The caption: "Chat, no exploits pls." Below it, a cartoon: a white cat stops a dripping pipe, and every fix starts a bigger leak, until a large pipe overhead bursts and pours water beside it. The pokayoke logo sits in the bottom right corner.',
+  },
   {
     id: 'PKY-0013',
     alt: 'pokayoke ad. The caption, in quotes like a prompt: "No exploits in my repo. Make no mistakes." With it, a security-camera still of a worker on a high ledge whose harness line is clipped to a hook held to the wall with clear tape, the hook circled in red. The pokayoke logo, by EZO Labs Security, sits in the bottom left corner of the photo.',

@@ -31,6 +31,7 @@ git config credential.https://KiltroKills@github.com.helper \
 
 | ID | Message | Files |
 |---|---|---|
+| PKY-0018 | Video, 10.5 s loop. The "it's a vicious cycle" GIF (a cartoon cat stops one leak and opens a bigger one) with its caption replaced by "Chat, no exploits pls." and the pokayoke lockup bottom right (meme bank MEME-62; cartoon footage, license or reanimate for paid ads) | [`ads/PKY-0018/`](ads/PKY-0018/) |
 | PKY-0013 | "No exploits in my repo. Make no mistakes." over a worker whose harness is clipped to a hook taped to the wall, the hook circled, and only the pokayoke lockup on the photo, bottom left (meme bank MEME-54) | [`ads/PKY-0013/`](ads/PKY-0013/) |
 | PKY-0011 | Terminator 2 minigun still, the T-800 labelled pokayoke. Bottom text "Have them on your side." (MEME-56; film still, not for paid ads unless licensed) | [`ads/PKY-0011/`](ads/PKY-0011/) |
 | PKY-0010 | Terminator 2 motorcycle still, the T-800 labelled pokayoke and the boy labelled your repo. Bottom text "Have them on your side." (MEME-55; film still, not for paid ads unless licensed) | [`ads/PKY-0010/`](ads/PKY-0010/) |
@@ -44,7 +45,8 @@ git config credential.https://KiltroKills@github.com.helper \
 IDs are never reused: PKY-0002 to PKY-0004 and PKY-0012 were published briefly and withdrawn.
 
 Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1920x1080), `4x5.png` (1080x1350),
-`9x16.png` (1080x1920).
+`9x16.png` (1080x1920). An animated ad also has one MP4 per ratio (H.264, 30 fps, no sound), made from its footage
+(`clip.mp4`); its PNGs are the posters.
 
 ## Make or change an ad
 
@@ -53,7 +55,11 @@ Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1
 2. `npm install`, then `npm run render` (or `npm run render -- PKY-00NN` for one ad). It captures every ratio at 2x with the
    installed Google Chrome (`PW_CHANNEL=chromium` uses Playwright's own build) and exits non-zero if any block
    overflows or overlaps another.
-3. Add it to the top of `ads/manifest.js` (ID and alt text); the gallery shows every entry in that order.
+   For an animated ad, put the footage in the template as `<video class="clip" src="clip.mp4" data-poster-time="9.45">`
+   (see `ads/PKY-0018/ad.html`): the PNG shows the frame at that second, and `ffmpeg` (on `PATH`) writes `<ratio>.mp4`,
+   the page with the footage composited into the video's box. Keep every other block clear of that box.
+3. Add it to the top of `ads/manifest.js` (ID and alt text, plus `video: true` for an animated ad, which the gallery
+   plays muted and looping while on screen); the gallery shows every entry in that order.
 
 Brand colors (with the site's severity chips and its dark theme, `--color-band-*`), type and radii live in
 `brand/tokens.css`; the mark is `brand/pokayoke-mark.svg`, both taken from
