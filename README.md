@@ -3,8 +3,8 @@
 Ad creatives for [pokayoke](https://pokayoke.sh) by EZO Labs Security, and the public page that shows them.
 
 **Viewer:** https://kiltrokills.github.io/pokayoke-ads/ (GitHub Pages on the mirror `KiltroKills/pokayoke-ads`).
-It shows one ad, its ID, a Download button and a 16:9 / 4:5 / 9:16 switch. Link a specific ad and frame with
-`?id=PKY-0001&ratio=9x16`.
+It shows every ad, newest first, each with its ID and a Download button, and a 16:9 / 4:5 / 9:16 switch in the top
+right that changes all of them. Link a frame and an ad with `?ratio=9x16#PKY-0001`.
 
 `singularitystudiosdev/pokayoke-ads` is the main copy. GitHub has flagged that account (Actions off, repos hidden
 from the public), so Pages publishes from the mirror; once the flag is lifted the same workflow also serves
@@ -43,8 +43,7 @@ Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1
 2. `npm install`, then `npm run render` (or `npm run render -- PKY-0002`). It captures every ratio at 2x with the
    installed Google Chrome (`PW_CHANNEL=chromium` uses Playwright's own build) and exits non-zero if any block
    overflows or overlaps another.
-3. Add it to the top of `ads/manifest.js` (ID and alt text). The viewer's Ad ID picker lists that file and opens the
-   first entry by default; also point the static fallback in `index.html` at it.
+3. Add it to the top of `ads/manifest.js` (ID and alt text); the gallery shows every entry in that order.
 
 Brand colors, type and radii live in `brand/tokens.css`; the mark is `brand/pokayoke-mark.svg`, both taken from
 pokayoke.sh.

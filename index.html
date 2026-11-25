@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>pokayoke ad PKY-0001</title>
+<title>pokayoke ads</title>
 <link rel="icon" href="brand/pokayoke-mark.svg" type="image/svg+xml">
 <link rel="stylesheet" href="brand/tokens.css">
 <link rel="stylesheet" href="viewer.css">
@@ -13,33 +13,23 @@
 </head>
 <body data-ratio="16x9">
 <header class="bar">
-  <div class="meta">
-    <label class="ad-id"><span class="ad-id-label">Ad ID</span>
-      <span class="select">
-        <select id="ad-select">
-          <option value="PKY-0001">PKY-0001</option>
-        </select>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6"/></svg>
-      </span>
-    </label>
-    <a class="download" id="download" href="ads/PKY-0001/16x9.png" download="pokayoke-PKY-0001-16x9.png">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 15V3m9 12v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10l5 5l5-5"/></g></svg>
-      <span>Download</span>
-    </a>
-  </div>
-  <div class="ratios" role="group" aria-label="Aspect ratio">
+  <h1 class="title">
+    <svg viewBox="1 1 22 22" aria-hidden="true"><path d="M8.1 3.9A9 9 0 0 0 8.1 20.1M15.9 3.9A9 9 0 0 1 15.9 20.1" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" fill="#0B59FE"/></svg>
+    pokayoke ads
+  </h1>
+  <div class="ratios" role="group" aria-label="Aspect ratio for every ad">
     <button type="button" data-ratio="16x9" aria-pressed="true">16:9</button>
     <button type="button" data-ratio="4x5" aria-pressed="false">4:5</button>
     <button type="button" data-ratio="9x16" aria-pressed="false">9:16</button>
   </div>
 </header>
-<main class="stage">
-  <img id="ad" src="ads/PKY-0001/16x9.png" width="1920" height="1080" fetchpriority="high"
-       alt="pokayoke ad. Link your repo. Know what's critical. Step 1, link your GitHub repo. Step 2, scan for vulnerabilities. Step 3, get one clear number: 3 critical vulnerabilities, each proven with a working exploit.">
-  <div class="missing" id="missing" hidden>
-    <p>No ad with this ID has been published yet.</p>
-    <a href="./">Show the latest ad</a>
+<main>
+  <ul class="gallery" id="gallery" aria-label="Ads, newest first"></ul>
+  <div class="empty" id="empty" hidden>
+    <p>No ads are published yet.</p>
+    <a href="https://github.com/KiltroKills/pokayoke-ads#make-or-change-an-ad">See how to add one</a>
   </div>
+  <noscript><p class="empty">This page needs JavaScript to list the ads.</p></noscript>
 </main>
 </body>
 </html>

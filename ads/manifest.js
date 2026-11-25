@@ -1,4 +1,4 @@
-// Every published ad, newest first. The viewer lists these IDs and opens the first by default.
+// Every published ad, newest first. The gallery (index.html) shows each one in this order.
 // Images live at ads/<id>/<ratio>.png; alt is read aloud in place of the image.
 window.POKAYOKE_ADS = [
   {
