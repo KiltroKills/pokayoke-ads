@@ -63,7 +63,7 @@ pokayoke.sh.
 
 ## Meme bank
 
-**Page:** https://kiltrokills.github.io/pokayoke-ads/memes.html (linked as "Meme bank" in the viewer's top bar).
+**Page:** https://kiltrokills.github.io/pokayoke-ads/memes.html (not linked from the viewer's top bar; open it by its address).
 It lists meme formats that could become pokayoke ads, where someone has little protection or does something stupid,
 in four kinds: little protection, doing something stupid, getting owned, and the pokayoke way. Each meme shows its
 blank template, why it fits, the caption for each panel that turns it into a pokayoke ad, an ad line, and an image
