@@ -31,6 +31,8 @@ git config credential.https://KiltroKills@github.com.helper \
 
 | ID | Message | Files |
 |---|---|---|
+| PKY-0016 | "Stay Safe." and nothing else, over the Terminator 2 opening: a T-800 endoskeleton's red-eyed skull, the machine army marching behind it (MEME-60; film still, not for paid ads unless licensed) | [`ads/PKY-0016/`](ads/PKY-0016/) |
+| PKY-0015 | "Stay Safe." and nothing else, over a Terminator future-war still of an endoskeleton army marching out of blue smoke (MEME-59; film still, not for paid ads unless licensed) | [`ads/PKY-0015/`](ads/PKY-0015/) |
 | PKY-0013 | "No exploits in my repo. Make no mistakes." over a worker whose harness is clipped to a hook taped to the wall, the hook circled, and only the pokayoke lockup on the photo, bottom left (meme bank MEME-54) | [`ads/PKY-0013/`](ads/PKY-0013/) |
 | PKY-0011 | Terminator 2 minigun still, the T-800 labelled pokayoke. Bottom text "Have them on your side." (MEME-56; film still, not for paid ads unless licensed) | [`ads/PKY-0011/`](ads/PKY-0011/) |
 | PKY-0010 | Terminator 2 motorcycle still, the T-800 labelled pokayoke and the boy labelled your repo. Bottom text "Have them on your side." (MEME-55; film still, not for paid ads unless licensed) | [`ads/PKY-0010/`](ads/PKY-0010/) |

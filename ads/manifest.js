@@ -2,6 +2,14 @@
 // Images live at ads/<id>/<ratio>.png; alt is read aloud in place of the image.
 window.POKAYOKE_ADS = [
   {
+    id: 'PKY-0016',
+    alt: 'pokayoke ad. Stay Safe. Over the Terminator 2 opening: a chrome robot skull with glowing red eyes in close-up, an army of robot skeletons marching through the smoke behind it.',
+  },
+  {
+    id: 'PKY-0015',
+    alt: 'pokayoke ad. Stay Safe. Over a Terminator future-war still: an army of chrome robot skeletons with red eyes marching out of blue smoke, the nearest ones carrying miniguns.',
+  },
+  {
     id: 'PKY-0013',
     alt: 'pokayoke ad. The caption, in quotes like a prompt: "No exploits in my repo. Make no mistakes." With it, a security-camera still of a worker on a high ledge whose harness line is clipped to a hook held to the wall with clear tape, the hook circled in red. The pokayoke logo, by EZO Labs Security, sits in the bottom left corner of the photo.',
   },
