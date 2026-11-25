@@ -32,7 +32,6 @@ git config credential.https://KiltroKills@github.com.helper \
 | ID | Message | Files |
 |---|---|---|
 | PKY-0013 | "No exploits in my repo. Make no mistakes." over a worker whose harness is clipped to a hook taped to the wall, the hook circled, and only the pokayoke lockup on the photo, bottom left (meme bank MEME-54) | [`ads/PKY-0013/`](ads/PKY-0013/) |
-| PKY-0012 | Terminator vision, built by us: a red HUD locks onto an SQL injection and picks "send fix privately". Bottom text "Have them on your side." (meme bank MEME-57, free to run) | [`ads/PKY-0012/`](ads/PKY-0012/) |
 | PKY-0011 | Terminator 2 minigun still, the T-800 labelled pokayoke. Bottom text "Have them on your side." (MEME-56; film still, not for paid ads unless licensed) | [`ads/PKY-0011/`](ads/PKY-0011/) |
 | PKY-0010 | Terminator 2 motorcycle still, the T-800 labelled pokayoke and the boy labelled your repo. Bottom text "Have them on your side." (MEME-55; film still, not for paid ads unless licensed) | [`ads/PKY-0010/`](ads/PKY-0010/) |
 | PKY-0009 | "Found. Verified. Disclosed." over the pokayoke.sh finding strip stood up as a list: score chip, severity, repo and advisory ID for five findings (seven in 9:16) from its public disclosure record | [`ads/PKY-0009/`](ads/PKY-0009/) |
@@ -42,7 +41,7 @@ git config credential.https://KiltroKills@github.com.helper \
 | PKY-0005 | "Who's next?" Grim reaper doors meme: GitHub and Meta already hit, the last door is YOUR REPO ([TechCrunch](https://techcrunch.com/2026/05/20/github-says-hackers-stole-data-from-thousands-of-internal-repositories/), [SecurityWeek](https://www.securityweek.com/meta-says-hackers-took-code-personal-data-of-1500-in-github-breach/)) | [`ads/PKY-0005/`](ads/PKY-0005/) |
 | PKY-0001 | Link your repo, scan for vulnerabilities, get one clear critical count | [`ads/PKY-0001/`](ads/PKY-0001/) |
 
-IDs are never reused: PKY-0002 to PKY-0004 were published briefly and withdrawn.
+IDs are never reused: PKY-0002 to PKY-0004 and PKY-0012 were published briefly and withdrawn.
 
 Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1920x1080), `4x5.png` (1080x1350),
 `9x16.png` (1080x1920).
