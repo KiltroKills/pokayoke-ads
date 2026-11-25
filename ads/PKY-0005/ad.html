@@ -5,17 +5,19 @@
 <title>pokayoke ad PKY-0005</title>
 <script>
   const ratio = new URLSearchParams(location.search).get('ratio');
-  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+  if (['16x9', '1x1', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
 </script>
 <link rel="stylesheet" href="../../brand/tokens.css">
 <!--
   Meme: the user's grim-reaper-at-the-doors image (meme.png, 1440x1064). Plates sit on the doors at
-  positions measured on that image. Receipts:
+  positions measured on that image. 1:1 trims the blank wall above the doors (top 100px) and the floor strip
+  (bottom 40px) so the hook, receipts and sign fit below; its plates sit at the same image points. Receipts:
   GitHub: https://techcrunch.com/2026/05/20/github-says-hackers-stole-data-from-thousands-of-internal-repositories/
   Meta: https://www.securityweek.com/meta-says-hackers-took-code-personal-data-of-1500-in-github-breach/
 -->
 <style>
   :root { --frame-w: 960px; --frame-h: 540px; }
+  [data-ratio="1x1"] { --frame-w: 540px; --frame-h: 540px; }
   [data-ratio="4x5"] { --frame-w: 540px; --frame-h: 675px; }
   [data-ratio="9x16"] { --frame-w: 540px; --frame-h: 960px; }
 
@@ -69,6 +71,9 @@
     line-height: 1;
     white-space: nowrap;
   }
+  /* 1:1 shows image rows 100 to 1024 of 1064: a 1440x924 box, the image cropped 100 of its 140 spare rows from the top */
+  [data-ratio="1x1"] .meme { aspect-ratio: 1440 / 924; }
+  [data-ratio="1x1"] .meme img { height: 100%; object-fit: cover; object-position: 50% calc(100% * 100 / 140); }
   .plate-github { left: 10.8%; top: 28%; font-size: 2.15cqw; }
   .plate-meta { left: 38.6%; top: 24.5%; font-size: 3cqw; padding-inline: 1.6cqw; }
   .plate-repo {
@@ -79,6 +84,10 @@
     background: var(--color-ink);
     color: var(--color-on-ink);
   }
+  /* (top% x 1064 - 100) / 924 */
+  [data-ratio="1x1"] .plate-github { top: 21.42%; }
+  [data-ratio="1x1"] .plate-meta { top: 17.39%; }
+  [data-ratio="1x1"] .plate-repo { top: 15.66%; }
 
   /* Hook, receipts and lockup. The hook sits above the meme in 9:16 and inside the panel otherwise. */
   .ad > .hook { display: none; }
@@ -104,6 +113,8 @@
     gap: var(--space-20);
   }
   [data-ratio="16x9"] .panel { padding: var(--space-32) var(--space-24); gap: var(--space-24); }
+  [data-ratio="1x1"] .panel { padding: var(--space-16) var(--space-24); gap: var(--space-8); }
+  [data-ratio="1x1"] .hook { font-size: 34px; letter-spacing: -1.2px; }
   [data-ratio="4x5"] .panel { padding: var(--space-24) var(--space-32); gap: var(--space-16); }
   [data-ratio="9x16"] .panel { padding: var(--space-32) var(--space-40) var(--space-40); gap: var(--space-24); }
   [data-ratio="9x16"] .panel .hook { display: none; }
@@ -116,7 +127,10 @@
   .receipt-when { color: var(--color-muted); white-space: nowrap; }
   .receipt-what { color: var(--color-muted); text-wrap: pretty; }
   [data-ratio="16x9"] .receipt-head { flex-direction: column; gap: 0; }
+  [data-ratio="1x1"] .receipts,
   [data-ratio="4x5"] .receipts { grid-template-columns: 1fr 1fr; column-gap: var(--space-24); }
+  [data-ratio="1x1"] .receipt { font-size: 12px; line-height: 1.35; }
+  [data-ratio="1x1"] .receipt-name { font-size: 14px; }
   [data-ratio="9x16"] .receipt { font-size: 17px; }
   [data-ratio="9x16"] .receipt-name { font-size: 20px; }
 
@@ -132,6 +146,12 @@
   [data-ratio="16x9"] .sign,
   [data-ratio="9x16"] .sign { flex-direction: column; align-items: flex-start; gap: var(--space-12); }
   [data-ratio="9x16"] .sign { gap: var(--space-16); padding-top: var(--space-24); }
+  [data-ratio="1x1"] .sign { padding-top: var(--space-8); align-items: center; }
+  [data-ratio="1x1"] .lockup { gap: var(--space-8); }
+  [data-ratio="1x1"] .lockup svg { width: 28px; height: 28px; }
+  [data-ratio="1x1"] .wordmark { font-size: 20px; }
+  [data-ratio="1x1"] .byline { margin-top: var(--space-2); font-size: 11px; }
+  [data-ratio="1x1"] .tagline { font-size: 13px; }
   .lockup { display: flex; align-items: center; gap: var(--space-12); }
   .lockup svg { width: 36px; height: 36px; flex: none; }
   .wordmark { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
