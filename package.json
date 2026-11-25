@@ -4,7 +4,9 @@
   "type": "module",
   "description": "pokayoke ad creatives and their public viewer page",
   "scripts": {
-    "render": "node scripts/render.mjs"
+    "render": "node scripts/render.mjs",
+    "memes": "node scripts/memes.mjs",
+    "meme-formats": "node scripts/meme-formats.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.1",

@@ -50,3 +50,31 @@ Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1
 
 Brand colors, type and radii live in `brand/tokens.css`; the mark is `brand/pokayoke-mark.svg`, both taken from
 pokayoke.sh.
+
+## Meme bank
+
+**Page:** https://kiltrokills.github.io/pokayoke-ads/memes.html (linked as "Meme bank" in the viewer's top bar).
+It lists meme formats that could become pokayoke ads, where someone has little protection or does something stupid,
+in four kinds: little protection, doing something stupid, getting owned, and the pokayoke way. Each meme shows its
+blank template, why it fits, the caption for each panel that turns it into a pokayoke ad, an ad line, and an image
+rights label:
+
+- **Free to recreate:** the joke is a scene anyone can shoot or draw.
+- **Redraw or license:** the image belongs to a photographer, artist, studio or real person. License stock photos;
+  redraw the layout with our own characters.
+- **Ask first or skip:** the character is the joke and its owner enforces. Not for paid ads unless the owner agrees.
+
+Link one kind with `memes.html?kind=stupid` (`protection`, `stupid`, `owned`, `better`) and one meme with
+`memes.html#MEME-14`. To make a meme into an ad, build it as the next `PKY-` ID and set `ad: 'PKY-000N'` on its
+entry so the page links to it.
+
+Where a post in the same format did well with developers, the entry's `proof` records its upvotes and link, and
+the page shows it as evidence. The screenshot formats developers upvoted most in 2026 (a junior asking a senior,
+code that ships past its own warnings, a bot that hands over its `.env`) are rebuilt as our own mock-ups in
+`memes/formats/formats.html`, with made-up names and masked keys, so their rights label is "Free to recreate".
+
+To add a meme, add an entry to `memes/manifest.js` (its imgflip template ID, captions and rights), then run
+`npm run memes`. It saves the blank template as `memes/img/<slug>.webp` (at most 480x720, needs ImageMagick) and
+writes every image's size to `memes/sizes.js`; `npm run memes -- --force` downloads them all again. For a format we
+rebuild ourselves, add a `.card` with the slug as its `id` to `memes/formats/formats.html`, leave out `imgflip`,
+and run `npm run meme-formats` before `npm run memes`.
