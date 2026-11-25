@@ -31,6 +31,7 @@ git config credential.https://KiltroKills@github.com.helper \
 
 | ID | Message | Files |
 |---|---|---|
+| PKY-0006 | "Stop the leak on the push." Flex Tape meme with the bottom text "Flag critical security issues." (meme bank MEME-12; `captioned.png` is the meme alone) | [`ads/PKY-0006/`](ads/PKY-0006/) |
 | PKY-0005 | "Who's next?" Grim reaper doors meme: GitHub and Meta already hit, the last door is YOUR REPO ([TechCrunch](https://techcrunch.com/2026/05/20/github-says-hackers-stole-data-from-thousands-of-internal-repositories/), [SecurityWeek](https://www.securityweek.com/meta-says-hackers-took-code-personal-data-of-1500-in-github-breach/)) | [`ads/PKY-0005/`](ads/PKY-0005/) |
 | PKY-0001 | Link your repo, scan for vulnerabilities, get one clear critical count | [`ads/PKY-0001/`](ads/PKY-0001/) |
 
@@ -41,9 +42,9 @@ Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1
 
 ## Make or change an ad
 
-1. Copy `ads/PKY-0001/` to the next unused ID (`ads/PKY-0006/`) and edit its `ad.html`. One template serves all three
+1. Copy `ads/PKY-0001/` to the next unused ID (`ads/PKY-0007/`) and edit its `ad.html`. One template serves all three
    ratios through `html[data-ratio]`.
-2. `npm install`, then `npm run render` (or `npm run render -- PKY-0006`). It captures every ratio at 2x with the
+2. `npm install`, then `npm run render` (or `npm run render -- PKY-0007`). It captures every ratio at 2x with the
    installed Google Chrome (`PW_CHANNEL=chromium` uses Playwright's own build) and exits non-zero if any block
    overflows or overlaps another.
 3. Add it to the top of `ads/manifest.js` (ID and alt text); the gallery shows every entry in that order.
