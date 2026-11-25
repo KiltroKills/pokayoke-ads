@@ -1,4 +1,4 @@
-// Ad viewer: ?id=PKY-0002&ratio=4x5 picks the ad and frame; images live at ads/<id>/<ratio>.png.
+// Ad viewer: ?id=PKY-0001&ratio=4x5 picks the ad and frame; images live at ads/<id>/<ratio>.png.
 // The ad list comes from ads/manifest.js (newest first); the first entry opens by default.
 const RATIOS = { '16x9': [1920, 1080], '4x5': [1080, 1350], '9x16': [1080, 1920] };
 const ADS = window.POKAYOKE_ADS ?? [];

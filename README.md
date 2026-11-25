@@ -29,17 +29,12 @@ git config credential.https://KiltroKills@github.com.helper \
 
 ## Ads
 
-| ID | Message | Cited story | Files |
-|---|---|---|---|
-| PKY-0004 | Hours. That's all attackers needed. | [BleepingComputer, Dec 6, 2025](https://www.bleepingcomputer.com/news/security/react2shell-flaw-exploited-to-breach-30-orgs-77k-ip-addresses-vulnerable/) | [`ads/PKY-0004/`](ads/PKY-0004/) |
-| PKY-0003 | The last commit to your repo might not be yours. | [SecurityWeek, Nov 12, 2026](https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign/) | [`ads/PKY-0003/`](ads/PKY-0003/) |
-| PKY-0002 | Five years in a public repo. Nobody noticed. | [BleepingComputer, Oct 10, 2022](https://www.bleepingcomputer.com/news/security/toyota-discloses-data-leak-after-access-key-exposed-on-github/) | [`ads/PKY-0002/`](ads/PKY-0002/) |
-| PKY-0001 | Link your repo, scan for vulnerabilities, get one clear critical count | | [`ads/PKY-0001/`](ads/PKY-0001/) |
+| ID | Message | Files |
+|---|---|---|
+| PKY-0001 | Link your repo, scan for vulnerabilities, get one clear critical count | [`ads/PKY-0001/`](ads/PKY-0001/) |
 
 Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1920x1080), `4x5.png` (1080x1350),
-`9x16.png` (1080x1920). The fear series (PKY-0002 on) shares `brand/news-ad.css`: a fear line, one cited news story
-with its verbatim headline, and the lockup underneath. Each `ad.html` names its source URL in a comment; quote the
-headline exactly and keep the summary to what the article says.
+`9x16.png` (1080x1920).
 
 ## Make or change an ad
 
