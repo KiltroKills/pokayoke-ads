@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <title>pokayoke ad PKY-0007</title>
 <script>
-  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 4x5 | 9x16
+  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 1x1 | 4x5 | 9x16
   const ratio = new URLSearchParams(location.search).get('ratio');
-  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+  if (['16x9', '1x1', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
 </script>
 <link rel="stylesheet" href="../../brand/tokens.css">
 <!--
   The pokayoke.sh hero, as an ad: the site's top bar, its headline and its three blue ticks, nothing else.
   Type follows the site: headline 800 at -0.035em, points 500 muted, tick = blue disc with a white check.
-  16:9 headline left, ticks right (as on the site). 4:5 and 9:16 stack them.
+  16:9 headline left, ticks right (as on the site). 1:1, 4:5 and 9:16 stack them; 1:1 keeps the headline on its two site lines.
 -->
 <style>
   :root {
@@ -28,6 +28,20 @@
     --point: 19px;
     --tick: 24px;
     --point-gap: var(--space-16);
+  }
+  [data-ratio="1x1"] {
+    --frame-w: 540px;
+    --frame-h: 540px;
+    --pad: var(--space-32);
+    --bar-pad: var(--space-24);
+    --mark: 30px;
+    --wordmark: 19px;
+    --byline: 11px;
+    --url: 14px;
+    --h1: 52px;
+    --point: 18px;
+    --tick: 24px;
+    --point-gap: var(--space-12);
   }
   [data-ratio="4x5"] {
     --frame-w: 540px;
@@ -105,7 +119,9 @@
     align-items: center;
     column-gap: var(--space-40);
   }
-  [data-ratio="16x9"] .title span { white-space: nowrap; }
+  [data-ratio="16x9"] .title span,
+  [data-ratio="1x1"] .title span { white-space: nowrap; }
+  [data-ratio="1x1"] .hero { gap: var(--space-32); }
   [data-ratio="9x16"] .hero { gap: var(--space-48); }
 
   .title {

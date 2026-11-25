@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <title>pokayoke ad PKY-0009</title>
 <script>
-  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 4x5 | 9x16
+  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 1x1 | 4x5 | 9x16
   const ratio = new URLSearchParams(location.search).get('ratio');
-  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+  if (['16x9', '1x1', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
 </script>
 <link rel="stylesheet" href="../../brand/tokens.css">
 <!--
   The finding strip from pokayoke.sh ("Findings on the public disclosure record"), stood up as a list:
   each row is the site's score chip, severity word, repo and advisory ID, copied from the strip on 2026-11-25.
   Headline from the site's footer line "pokayoke finds, verifies and discloses."
-  16:9 and 4:5 show 5 findings; 9:16 shows 7 (.more rows).
+  16:9, 1:1 and 4:5 show 5 findings (1:1 with the title on one line so all five fit whole); 9:16 shows 7 (.more rows).
 -->
 <style>
   :root {
@@ -26,6 +26,18 @@
     --h1: 52px;
     --url: 15px;
     --row: 15px;
+    --row-pad: var(--space-12);
+  }
+  [data-ratio="1x1"] {
+    --frame-w: 540px;
+    --frame-h: 540px;
+    --pad: var(--space-24);
+    --mark: 28px;
+    --wordmark: 18px;
+    --byline: 11px;
+    --h1: 38px;
+    --url: 13px;
+    --row: 14px;
     --row-pad: var(--space-12);
   }
   [data-ratio="4x5"] {
@@ -81,6 +93,7 @@
     grid-template-rows: auto minmax(0, 1fr) auto;
     grid-template-areas: "lockup list" "title list" "url list";
   }
+  [data-ratio="1x1"] .ad { gap: var(--space-16); }
   [data-ratio="4x5"] .ad { gap: var(--space-24); }
 
   .lockup { grid-area: lockup; display: flex; align-items: center; gap: var(--space-12); }
@@ -97,6 +110,7 @@
     line-height: 1.04;
   }
   .title span { display: block; }
+  [data-ratio="1x1"] .title span,
   [data-ratio="4x5"] .title span { display: inline; }
 
   .url { grid-area: url; font-family: var(--font-mono); font-size: var(--url); font-weight: 500; }
@@ -113,6 +127,7 @@
     font-size: var(--row);
     line-height: 1.4;
   }
+  [data-ratio="1x1"] .list,
   [data-ratio="4x5"] .list,
   [data-ratio="9x16"] .list { align-self: start; }
   .finding {

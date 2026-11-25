@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <title>pokayoke ad PKY-0008</title>
 <script>
-  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 4x5 | 9x16
+  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 1x1 | 4x5 | 9x16
   const ratio = new URLSearchParams(location.search).get('ratio');
-  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+  if (['16x9', '1x1', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
 </script>
 <link rel="stylesheet" href="../../brand/tokens.css">
 <!--
   The "Paste into your agent" card from the pokayoke.sh hero, in the site's dark theme: the robot icon,
   the one line to paste and the blue Copy button, with a pointer on it. No other copy.
+  1:1 is the 4:5 card, a size down, so the card clears the bar with even margins.
   Colors are the site's dark computed styles (brand/tokens.css, --color-band-*).
 -->
 <style>
@@ -24,6 +25,22 @@
     --byline: 12px;
     --url: 15px;
     --card-w: 560px;
+    --card-pad: var(--space-32);
+    --icon: 44px;
+    --title: 32px;
+    --code: 17px;
+    --button: 17px;
+    --pointer: 30px;
+  }
+  [data-ratio="1x1"] {
+    --frame-w: 540px;
+    --frame-h: 540px;
+    --bar-pad: var(--space-24);
+    --mark: 30px;
+    --wordmark: 19px;
+    --byline: 11px;
+    --url: 14px;
+    --card-w: 468px;
     --card-pad: var(--space-32);
     --icon: 44px;
     --title: 32px;
