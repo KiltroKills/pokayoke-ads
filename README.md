@@ -29,12 +29,17 @@ git config credential.https://KiltroKills@github.com.helper \
 
 ## Ads
 
-| ID | Message | Files |
-|---|---|---|
-| PKY-0001 | Link your repo, scan for vulnerabilities, get one clear critical count | [`ads/PKY-0001/`](ads/PKY-0001/) |
+| ID | Message | Cited story | Files |
+|---|---|---|---|
+| PKY-0004 | Hours. That's all attackers needed. | [BleepingComputer, Dec 6, 2025](https://www.bleepingcomputer.com/news/security/react2shell-flaw-exploited-to-breach-30-orgs-77k-ip-addresses-vulnerable/) | [`ads/PKY-0004/`](ads/PKY-0004/) |
+| PKY-0003 | The last commit to your repo might not be yours. | [SecurityWeek, Nov 12, 2026](https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign/) | [`ads/PKY-0003/`](ads/PKY-0003/) |
+| PKY-0002 | Five years in a public repo. Nobody noticed. | [BleepingComputer, Oct 10, 2022](https://www.bleepingcomputer.com/news/security/toyota-discloses-data-leak-after-access-key-exposed-on-github/) | [`ads/PKY-0002/`](ads/PKY-0002/) |
+| PKY-0001 | Link your repo, scan for vulnerabilities, get one clear critical count | | [`ads/PKY-0001/`](ads/PKY-0001/) |
 
 Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1920x1080), `4x5.png` (1080x1350),
-`9x16.png` (1080x1920).
+`9x16.png` (1080x1920). The fear series (PKY-0002 on) shares `brand/news-ad.css`: a fear line, one cited news story
+with its verbatim headline, and the lockup underneath. Each `ad.html` names its source URL in a comment; quote the
+headline exactly and keep the summary to what the article says.
 
 ## Make or change an ad
 
@@ -43,7 +48,8 @@ Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1
 2. `npm install`, then `npm run render` (or `npm run render -- PKY-0002`). It captures every ratio at 2x with the
    installed Google Chrome (`PW_CHANNEL=chromium` uses Playwright's own build) and exits non-zero if any block
    overflows or overlaps another.
-3. To show the new ad by default, set `DEFAULT_ID` in `viewer.js` and the ID, image paths and alt text in `index.html`.
+3. Add it to the top of `ads/manifest.js` (ID and alt text). The viewer's Ad ID picker lists that file and opens the
+   first entry by default; also point the static fallback in `index.html` at it.
 
 Brand colors, type and radii live in `brand/tokens.css`; the mark is `brand/pokayoke-mark.svg`, both taken from
 pokayoke.sh.

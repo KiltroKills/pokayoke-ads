@@ -1,0 +1,147 @@
+/* Fear series (PKY-0002+): a fear line, one short cited news story, the pokayoke lockup underneath.
+   Frame sizes are CSS px; scripts/render.mjs captures at 2x. Ratio comes from html[data-ratio]. */
+:root {
+  --frame-w: 960px;
+  --frame-h: 540px;
+  --pad: var(--space-48);
+  --fear: 54px;
+  --fear-track: -2px;
+  --headline: 22px;
+  --body: 14px;
+  --band-h: 112px;
+  --mark: 40px;
+  --wordmark: 26px;
+  --byline: 14px;
+}
+[data-ratio="4x5"] {
+  --frame-w: 540px;
+  --frame-h: 675px;
+  --pad: var(--space-32);
+  --fear: 44px;
+  --fear-track: -1.6px;
+  --headline: 19px;
+  --body: 13px;
+  --band-h: 104px;
+  --mark: 36px;
+  --wordmark: 24px;
+  --byline: 13px;
+}
+[data-ratio="9x16"] {
+  --frame-w: 540px;
+  --frame-h: 960px;
+  --pad: var(--space-40);
+  --fear: 66px;
+  --fear-track: -2.6px;
+  --headline: 24px;
+  --body: 16px;
+  --band-h: 144px;
+  --mark: 44px;
+  --wordmark: 28px;
+  --byline: 14px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  width: var(--frame-w);
+  height: var(--frame-h);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+p, h1, h2 { margin: 0; }
+
+.ad {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) var(--band-h);
+  grid-template-areas: "field" "band";
+}
+
+/* The ink field: fear line, then the story */
+.field {
+  grid-area: field;
+  min-height: 0;
+  overflow: hidden;
+  padding: var(--pad);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  display: grid;
+  gap: var(--space-32);
+  grid-template-rows: auto auto;
+  align-content: center;
+}
+[data-ratio="16x9"] .field {
+  grid-template-columns: 1fr 400px;
+  grid-template-rows: 1fr;
+  align-items: center;
+  column-gap: var(--space-48);
+}
+[data-ratio="4x5"] .field { gap: var(--space-24); }
+[data-ratio="9x16"] .field { gap: var(--space-40); }
+
+.fear {
+  font-size: var(--fear);
+  font-weight: 800;
+  letter-spacing: var(--fear-track);
+  line-height: 1.02;
+}
+.fear span { display: block; text-wrap: balance; }
+
+/* The story: a short cited news item */
+.story {
+  padding: var(--space-24);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border-radius: var(--radius-surface);
+  display: grid;
+  gap: var(--space-12);
+}
+.source { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-16); font-size: var(--body); }
+.outlet { font-weight: 700; letter-spacing: -0.01em; }
+.date { color: var(--color-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.headline {
+  font-size: var(--headline);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+.excerpt { font-size: var(--body); line-height: 1.45; color: var(--color-muted); text-wrap: pretty; }
+.tag {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-4) var(--space-12);
+  border: 1px solid var(--color-hairline);
+  border-radius: 9999px;
+  font-size: calc(var(--body) - 1px);
+  font-weight: 600;
+}
+.tag::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-critical);
+}
+
+/* The band: the lockup exactly as the brand shows it on canvas */
+.band {
+  grid-area: band;
+  padding: 0 var(--pad);
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-24);
+}
+.lockup { display: flex; align-items: center; gap: var(--space-12); }
+.lockup svg { width: var(--mark); height: var(--mark); flex: none; }
+.wordmark { font-size: var(--wordmark); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+.byline { margin-top: var(--space-4); font-size: var(--byline); font-weight: 500; color: var(--color-muted); line-height: 1.2; }
+.url { font-family: var(--font-mono); font-size: 15px; color: var(--color-muted); }
+[data-ratio="4x5"] .url { font-size: 13px; }

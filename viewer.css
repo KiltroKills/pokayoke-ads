@@ -49,8 +49,31 @@ body {
   border-bottom: 1px solid var(--line);
 }
 .meta { display: flex; align-items: center; gap: var(--space-16); }
-.ad-id { margin: 0; color: var(--text-muted); white-space: nowrap; }
-.ad-id code { margin-left: var(--space-4); font-family: var(--font-mono); font-size: 14px; font-weight: 600; color: var(--text); }
+.ad-id { display: inline-flex; align-items: center; gap: var(--space-8); color: var(--text-muted); white-space: nowrap; }
+.ad-id select {
+  min-height: var(--control-h);
+  padding: 0 var(--space-32) 0 var(--space-12);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--control);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color var(--duration-150) var(--ease-standard);
+}
+.ad-id select:hover { border-color: var(--text-muted); }
+.select { position: relative; display: inline-flex; align-items: center; }
+.select svg {
+  position: absolute;
+  right: var(--space-12);
+  width: 16px;
+  height: 16px;
+  color: var(--text);
+  pointer-events: none;
+}
 
 .download,
 .ratios button {
@@ -89,6 +112,7 @@ body {
 .ratios button[aria-pressed="true"] { background: var(--selected); border-color: var(--selected); color: var(--on-selected); }
 
 .download:focus-visible,
+.ad-id select:focus-visible,
 .ratios button:focus-visible,
 .missing a:focus-visible {
   outline: 2px solid var(--color-accent);
@@ -123,7 +147,8 @@ body {
   .bar { flex-wrap: nowrap; gap: var(--space-12); padding: var(--space-8) var(--space-16); }
   .meta { gap: var(--space-12); }
   .download { width: var(--control-h); padding: 0; justify-content: center; }
-  .download span {
+  .download span,
+  .ad-id-label {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -135,5 +160,5 @@ body {
   .stage { padding: var(--space-16); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .download, .ratios button { transition: none; }
+  .download, .ratios button, .ad-id select { transition: none; }
 }

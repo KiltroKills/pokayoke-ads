@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-ratio="16x9">
+<head>
+<meta charset="utf-8">
+<title>pokayoke ad PKY-0003</title>
+<script>
+  const ratio = new URLSearchParams(location.search).get('ratio');
+  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+</script>
+<link rel="stylesheet" href="../../brand/tokens.css">
+<link rel="stylesheet" href="../../brand/news-ad.css">
+</head>
+<body>
+<!-- Source: https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign/ -->
+<main class="ad">
+  <section class="field">
+    <h1 class="fear"><span>The last commit to your repo</span> <span>might not be yours.</span></h1>
+    <article class="story">
+      <p class="source"><span class="outlet">SecurityWeek</span><span class="date">Nov 12, 2026</span></p>
+      <h2 class="headline">Attacker Targets 60,000 GitHub Repositories in Credential Theft Campaign</h2>
+      <p class="excerpt">Using thousands of hijacked accounts, the attacker planted a secret stealer that ran in over 1,800 repositories, usually covering its tracks.</p>
+      <p class="tag">Secret stealer</p>
+    </article>
+  </section>
+  <footer class="band">
+    <div class="lockup">
+      <svg viewBox="1 1 22 22" aria-hidden="true"><path d="M8.1 3.9A9 9 0 0 0 8.1 20.1M15.9 3.9A9 9 0 0 1 15.9 20.1" fill="none" stroke="#111212" stroke-width="3" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" fill="#0B59FE"/></svg>
+      <div>
+        <p class="wordmark">pokayoke</p>
+        <p class="byline">by EZO Labs Security</p>
+      </div>
+    </div>
+    <span class="url">pokayoke.sh</span>
+  </footer>
+</main>
+</body>
+</html>
