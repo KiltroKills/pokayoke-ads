@@ -222,7 +222,7 @@ window.POKAYOKE_MEMES = [
     fit: 'The leak gets slapped shut the moment it shows: pokayoke as the tape.',
     panels: [
       ['Pitchman and the gushing tank', 'Your repo, springing a leak'],
-      ['Bottom text, over the tape', '"Flag critical security issues."'],
+      ['Bottom text, over the tape', '"Flag critical security issues. Make no mistakes."'],
     ],
     line: 'pokayoke watches every push, runs an exploit against what it finds, and flags the critical issues before attackers do.',
     ad: 'PKY-0006',

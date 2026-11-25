@@ -15,7 +15,7 @@ window.POKAYOKE_ADS = [
   },
   {
     id: 'PKY-0006',
-    alt: 'pokayoke ad. The Flex Tape meme: a pitchman with a tank of water gushing from a hole, then a hand slapping tape over the leak, with the bottom text in quotes: "Flag critical security issues." pokayoke watches every push, runs an exploit against what it finds, and flags the critical issues before attackers do. Find exploits before attackers do. pokayoke.sh',
+    alt: 'pokayoke ad. The Flex Tape meme: a pitchman with a tank of water gushing from a hole, then a hand slapping tape over the leak, with the bottom text in quotes: "Flag critical security issues. Make no mistakes." pokayoke watches every push, runs an exploit against what it finds, and flags the critical issues before attackers do. Find exploits before attackers do. pokayoke.sh',
   },
   {
     id: 'PKY-0005',

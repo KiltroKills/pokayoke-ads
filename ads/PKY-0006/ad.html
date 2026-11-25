@@ -10,8 +10,9 @@
 <link rel="stylesheet" href="../../brand/tokens.css">
 <!--
   Meme: Flex Tape (imgflip template 166969924, the same frames as the user's image), upscaled 2x to meme.jpg
-  (1020x1144). The user asked for "Flag critical security issues." at the bottom, in quotation marks: it is the
-  meme's bottom text. No headline: the meme carries the ad.
+  (1020x1144). The user asked for "Flag critical security issues. Make no mistakes." at the bottom, in quotation
+  marks, like a prompt to an AI: it is the meme's bottom text, the second sentence on its own line. No headline:
+  the meme carries the ad.
   Layouts: 16:9 meme left, panel right. 4:5 meme full width over a brand band. 9:16 meme, then line and brand band.
 -->
 <style>
@@ -59,7 +60,7 @@
     transform: translateX(-50%);
     text-align: center;
     text-wrap: balance;
-    font-size: 8cqw;
+    font-size: 7.4cqw;
     font-weight: 900;
     letter-spacing: 0.01em;
     line-height: 1.04;
@@ -68,6 +69,7 @@
     paint-order: stroke fill;
     text-shadow: 0 0.4cqw 1.2cqw color-mix(in srgb, var(--color-ink) 45%, transparent);
   }
+  .caption span { display: block; }
 
   /* The line and the lockup */
   .panel {
@@ -132,7 +134,7 @@
 <main class="ad">
   <div class="meme">
     <img src="meme.jpg" width="1020" height="1144" alt="">
-    <p class="caption">“Flag critical security issues.”</p>
+    <p class="caption"><span>“Flag critical security issues.</span> <span>Make no mistakes.”</span></p>
   </div>
 
   <section class="panel">
