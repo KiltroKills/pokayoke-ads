@@ -52,5 +52,6 @@ window.POKAYOKE_MEME_SIZES = {
   "warnings-ignored": [480, 304],
   "sharing-is-caring": [480, 330],
   "coding-2022-2027": [480, 458],
-  "agent-env": [480, 350]
+  "agent-env": [480, 350],
+  "taped-hook": [480, 274]
 };

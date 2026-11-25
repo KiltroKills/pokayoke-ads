@@ -2,6 +2,10 @@
 // Images live at ads/<id>/<ratio>.png; alt is read aloud in place of the image.
 window.POKAYOKE_ADS = [
   {
+    id: 'PKY-0013',
+    alt: 'pokayoke ad. The caption, in quotes like a prompt: "No exploits in my repo. Make no mistakes." Below it, a security-camera still of a worker on a high ledge whose harness line is clipped to a hook held to the wall with clear tape, the hook circled in red. A prompt isn\'t a safety line. pokayoke attacks every push and runs an exploit against what it finds. Find exploits before attackers do. pokayoke.sh',
+  },
+  {
     id: 'PKY-0009',
     alt: 'pokayoke ad. Found. Verified. Disclosed. A list of findings from the pokayoke.sh public disclosure record, each with its score chip, severity, repo and advisory ID: 9.8 critical christianhelle/refitter, 9.4 critical Privasys/identity-platform, 9.1 critical MervinPraison/PraisonAI, 9.0 critical siyuan-note/siyuan, 8.7 high friendica/friendica. pokayoke.sh',
   },

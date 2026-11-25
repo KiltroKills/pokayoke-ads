@@ -9,8 +9,8 @@
 // pick:     a top pick, shown first in its category
 // ad:       the ad ID once the meme has been made into an ad (ads/<id>/)
 // proof:    a post in the same format that developers upvoted, as evidence the format lands (points as counted on `counted`)
-// No imgflip ID: a screenshot format we rebuilt ourselves in memes/formats/formats.html (`npm run meme-formats`);
-// `source` is the post that inspired it.
+// No imgflip ID: a screenshot format we rebuilt ourselves in memes/formats/formats.html (`npm run meme-formats`),
+// or a photo the user supplied, saved straight to memes/img/<slug>.webp.
 window.POKAYOKE_MEME_CATEGORIES = [
   { id: 'protection', label: 'Little protection' },
   { id: 'stupid', label: 'Doing something stupid' },
@@ -990,5 +990,25 @@ window.POKAYOKE_MEMES = [
       counted: 'Nov 25, 2026',
       url: 'https://www.reddit.com/r/ProgrammerHumor/comments/1s1qnxj/lol/',
     },
+  },
+
+  // Photos the user supplied
+  {
+    id: 'MEME-54',
+    slug: 'taped-hook',
+    name: 'Safety harness clipped to a taped-on hook',
+    alt: 'A security-camera still of a worker on a high ledge, his harness line clipped to a hook held to the wall with clear tape.',
+    category: 'protection',
+    angle: 'A prompt as protection',
+    pick: true,
+    fit: 'Harness on, line clipped in, and the anchor is a hook stuck to the wall with tape.',
+    panels: [
+      ['Caption', '"No exploits in my repo. Make no mistakes."'],
+      ['The taped hook', 'The prompt holding everything up'],
+    ],
+    line: "A prompt isn't a safety line. pokayoke attacks every push and runs an exploit against what it finds.",
+    ad: 'PKY-0013',
+    rights: 'free',
+    rightsNote: 'A security-camera still of a real worker, owner unknown: restage it with a model, safely on the ground, for paid ads.',
   },
 ];

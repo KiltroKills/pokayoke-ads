@@ -31,6 +31,7 @@ git config credential.https://KiltroKills@github.com.helper \
 
 | ID | Message | Files |
 |---|---|---|
+| PKY-0013 | "No exploits in my repo. Make no mistakes." over a worker whose harness is clipped to a hook taped to the wall, the hook circled (meme bank MEME-54) | [`ads/PKY-0013/`](ads/PKY-0013/) |
 | PKY-0009 | "Found. Verified. Disclosed." over the pokayoke.sh finding strip stood up as a list: score chip, severity, repo and advisory ID for five findings (seven in 9:16) from its public disclosure record | [`ads/PKY-0009/`](ads/PKY-0009/) |
 | PKY-0008 | The "Paste into your agent" card from pokayoke.sh in its dark theme: the line to paste and the blue Copy button | [`ads/PKY-0008/`](ads/PKY-0008/) |
 | PKY-0007 | The pokayoke.sh hero: "Find exploits before attackers do." and its three blue ticks (GitHub App, proven or not, private fix) | [`ads/PKY-0007/`](ads/PKY-0007/) |
@@ -45,9 +46,9 @@ Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1
 
 ## Make or change an ad
 
-1. Copy `ads/PKY-0001/` to the next unused ID (`ads/PKY-0007/`) and edit its `ad.html`. One template serves all three
+1. Copy `ads/PKY-0001/` to the next unused ID (one past the highest folder in `ads/`) and edit its `ad.html`. One template serves all three
    ratios through `html[data-ratio]`.
-2. `npm install`, then `npm run render` (or `npm run render -- PKY-0007`). It captures every ratio at 2x with the
+2. `npm install`, then `npm run render` (or `npm run render -- PKY-00NN` for one ad). It captures every ratio at 2x with the
    installed Google Chrome (`PW_CHANNEL=chromium` uses Playwright's own build) and exits non-zero if any block
    overflows or overlaps another.
 3. Add it to the top of `ads/manifest.js` (ID and alt text); the gallery shows every entry in that order.
