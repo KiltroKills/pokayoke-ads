@@ -5,7 +5,7 @@
 <title>pokayoke ad PKY-0006</title>
 <script>
   const ratio = new URLSearchParams(location.search).get('ratio');
-  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+  if (['16x9', '1x1', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
 </script>
 <link rel="stylesheet" href="../../brand/tokens.css">
 <!--
@@ -14,9 +14,11 @@
   marks, like a prompt to an AI: it is the meme's bottom text, the second sentence on its own line. No headline:
   the meme carries the ad.
   Layouts: 16:9 meme left, panel right. 4:5 meme full width over a brand band. 9:16 meme, then line and brand band.
+  1:1 the whole meme, centered at 476px tall, over the 4:5 brand band: a crop would push the caption onto the tape.
 -->
 <style>
   :root { --frame-w: 960px; --frame-h: 540px; }
+  [data-ratio="1x1"] { --frame-w: 540px; --frame-h: 540px; }
   [data-ratio="4x5"] { --frame-w: 540px; --frame-h: 675px; }
   [data-ratio="9x16"] { --frame-w: 540px; --frame-h: 960px; }
 
@@ -40,18 +42,23 @@
     grid-template-rows: 100%;
     grid-template-areas: "meme panel";
   }
+  [data-ratio="1x1"] .ad,
   [data-ratio="4x5"] .ad,
   [data-ratio="9x16"] .ad {
     grid-template-columns: 1fr;
     grid-template-rows: auto minmax(0, 1fr);
     grid-template-areas: "meme" "panel";
   }
+  [data-ratio="1x1"] .ad { grid-template-rows: 476px minmax(0, 1fr); }
 
   /* The meme and its bottom text, sized in the meme's own width (cqw) so it reads the same in every ratio */
   .meme { grid-area: meme; position: relative; container-type: inline-size; line-height: 0; }
-  [data-ratio="16x9"] .meme { height: 100%; aspect-ratio: 1020 / 1144; }
+  [data-ratio="16x9"] .meme,
+  [data-ratio="1x1"] .meme { height: 100%; aspect-ratio: 1020 / 1144; }
+  [data-ratio="1x1"] .meme { justify-self: center; }
   .meme img { width: 100%; height: auto; display: block; }
-  [data-ratio="16x9"] .meme img { height: 100%; width: auto; }
+  [data-ratio="16x9"] .meme img,
+  [data-ratio="1x1"] .meme img { height: 100%; width: auto; }
   .caption {
     position: absolute;
     left: 50%;
@@ -91,6 +98,7 @@
   }
   [data-ratio="9x16"] .panel { padding: var(--space-32) var(--space-40) var(--space-40); }
   [data-ratio="9x16"] .line { max-width: none; font-size: 24px; letter-spacing: -0.4px; }
+  [data-ratio="1x1"] .line,
   [data-ratio="4x5"] .line { display: none; }
 
   .sign {
@@ -108,8 +116,12 @@
   .tagline { font-size: 14px; font-weight: 600; line-height: 1.35; }
   .tagline .url { display: block; font-family: var(--font-mono); font-weight: 400; color: var(--color-muted); }
 
-  /* 4:5 and 9:16: the brand runs as one band under the meme (9:16 keeps the line above it) */
+  /* 1:1, 4:5 and 9:16: the brand runs as one band under the meme (9:16 keeps the line above it) */
+  [data-ratio="1x1"] .panel,
   [data-ratio="4x5"] .panel { padding: 0 var(--space-24); justify-content: center; }
+  /* 1:1: the band lines up with the meme's edges */
+  [data-ratio="1x1"] .panel { padding-inline: calc((100% - 476px * 1020 / 1144) / 2); }
+  [data-ratio="1x1"] .sign,
   [data-ratio="4x5"] .sign,
   [data-ratio="9x16"] .sign {
     flex-direction: row;
@@ -117,10 +129,15 @@
     justify-content: space-between;
     gap: var(--space-16);
   }
+  [data-ratio="1x1"] .sign,
   [data-ratio="4x5"] .sign { padding-top: 0; border-top: 0; }
+  [data-ratio="1x1"] .lockup svg,
   [data-ratio="4x5"] .lockup svg { width: 30px; height: 30px; }
+  [data-ratio="1x1"] .wordmark,
   [data-ratio="4x5"] .wordmark { font-size: 21px; }
+  [data-ratio="1x1"] .byline,
   [data-ratio="4x5"] .byline { display: none; }
+  [data-ratio="1x1"] .tagline,
   [data-ratio="4x5"] .tagline { font-size: 13px; text-align: right; }
   [data-ratio="9x16"] .sign { padding-top: var(--space-24); }
   [data-ratio="9x16"] .lockup { flex: none; }
