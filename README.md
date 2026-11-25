@@ -31,7 +31,7 @@ git config credential.https://KiltroKills@github.com.helper \
 
 | ID | Message | Files |
 |---|---|---|
-| PKY-0006 | "Stop the leak on the push." Flex Tape meme with the bottom text "Flag critical security issues." (meme bank MEME-12; `captioned.png` is the meme alone) | [`ads/PKY-0006/`](ads/PKY-0006/) |
+| PKY-0006 | Flex Tape meme with the bottom text, in quotes, "Flag critical security issues." (meme bank MEME-12; `captioned.png` is the meme alone) | [`ads/PKY-0006/`](ads/PKY-0006/) |
 | PKY-0005 | "Who's next?" Grim reaper doors meme: GitHub and Meta already hit, the last door is YOUR REPO ([TechCrunch](https://techcrunch.com/2026/05/20/github-says-hackers-stole-data-from-thousands-of-internal-repositories/), [SecurityWeek](https://www.securityweek.com/meta-says-hackers-took-code-personal-data-of-1500-in-github-breach/)) | [`ads/PKY-0005/`](ads/PKY-0005/) |
 | PKY-0001 | Link your repo, scan for vulnerabilities, get one clear critical count | [`ads/PKY-0001/`](ads/PKY-0001/) |
 
