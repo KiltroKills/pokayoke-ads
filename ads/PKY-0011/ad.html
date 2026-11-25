@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <title>pokayoke ad PKY-0011</title>
 <script>
-  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 4x5 | 9x16
+  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 1x1 | 4x5 | 9x16
   const ratio = new URLSearchParams(location.search).get('ratio');
-  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+  if (['16x9', '1x1', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
 </script>
 <link rel="stylesheet" href="../../brand/tokens.css">
 <!--
@@ -25,6 +25,14 @@
     --fy: 0.3;
     --caption: 6.4cqw;
     --label: 3.6cqw;
+  }
+  [data-ratio="1x1"] {
+    --frame-w: 540px;
+    --frame-h: 540px;
+    --fx: 0.45;
+    --fy: 0.5;
+    --caption: 7.4cqw;
+    --label: 5.4cqw;
   }
   [data-ratio="4x5"] {
     --frame-w: 540px;
@@ -61,6 +69,7 @@
     display: grid;
     grid-template-rows: 476px 1fr;
   }
+  [data-ratio="1x1"] .ad { grid-template-rows: 452px 1fr; }
   [data-ratio="4x5"] .ad { grid-template-rows: 540px 1fr; }
   [data-ratio="9x16"] .ad { grid-template-rows: 640px 1fr; }
 
@@ -122,8 +131,11 @@
   .tagline { font-size: 15px; font-weight: 600; line-height: 1.35; text-align: right; }
   .url { margin-left: var(--space-12); font-family: var(--font-mono); font-weight: 400; color: var(--color-muted); }
 
+  [data-ratio="1x1"] .band,
   [data-ratio="4x5"] .band { padding: 0 var(--space-24); }
+  [data-ratio="1x1"] .tagline,
   [data-ratio="4x5"] .tagline { font-size: 14px; }
+  [data-ratio="1x1"] .url,
   [data-ratio="4x5"] .url,
   [data-ratio="9x16"] .url { display: block; margin-left: 0; }
 
