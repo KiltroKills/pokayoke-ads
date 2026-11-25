@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <title>pokayoke ad PKY-0016</title>
 <script>
-  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 4x5 | 9x16
+  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 1x1 | 4x5 | 9x16
   const ratio = new URLSearchParams(location.search).get('ratio');
-  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+  if (['16x9', '1x1', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
 </script>
 <link rel="stylesheet" href="../../brand/tokens.css">
 <!--
@@ -29,6 +29,14 @@
     --bottom: 7cqh;
     --lockup-top: var(--space-20);
     --lockup-right: var(--space-20);
+  }
+  [data-ratio="1x1"] {
+    --frame-w: 540px;
+    --frame-h: 540px;
+    --fx: 0.06;
+    --size: 15cqw;
+    --lockup-top: var(--space-16);
+    --lockup-right: var(--space-16);
   }
   [data-ratio="4x5"] {
     --frame-w: 540px;
@@ -100,10 +108,13 @@
   }
   .lockup svg { width: 32px; height: 32px; flex: none; }
   .wordmark { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--color-ink); }
+  [data-ratio="1x1"] .lockup,
   [data-ratio="4x5"] .lockup,
   [data-ratio="9x16"] .lockup { gap: var(--space-8); padding: var(--space-6) var(--space-12) var(--space-6) var(--space-8); }
+  [data-ratio="1x1"] .lockup svg,
   [data-ratio="4x5"] .lockup svg,
   [data-ratio="9x16"] .lockup svg { width: 28px; height: 28px; }
+  [data-ratio="1x1"] .wordmark,
   [data-ratio="4x5"] .wordmark,
   [data-ratio="9x16"] .wordmark { font-size: 21px; }
 </style>
