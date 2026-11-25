@@ -16,17 +16,23 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Upload and deploy run as separate jobs (GitHub's starter layout): deploy-pages in the same job
+  # can query the artifact list before the upload is visible and fail with "No artifacts named github-pages".
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/configure-pages@v6
-      # upload-pages-artifact and deploy-pages must be the same major: v3 uploads go unseen by deploy-pages v4.
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: .
       - id: deployment
         uses: actions/deploy-pages@v5
