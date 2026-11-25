@@ -15,7 +15,8 @@
   Daniel Jurena, 2017, CC BY-SA 2.0 (commons.wikimedia.org/wiki/File:Terminator_in_Madame_Tussaud_London_(33465711484).jpg),
   scaled to still.jpg (2880x1908). CC BY-SA asks for that credit wherever the ad runs, and the figure is Arnold
   Schwarzenegger's likeness as the Terminator (meme bank MEME-62, "Ask first or skip"): not for paid ads unless licensed.
-  The only text is "Stay Safe.", as the user asked: no label, no lockup, no tagline.
+  The only text is "Stay Safe.", as the user asked, and the pokayoke lockup (mark and wordmark) top right,
+  their later ask; no byline, no tagline.
   The still fills the frame in every ratio; --fx/--fy pick the crop (0 = left/top edge, 1 = right/bottom edge).
   PKY-0015 to PKY-0017 are the same ad over the three images the user sent.
 -->
@@ -27,12 +28,16 @@
     --fy: 0.4;
     --size: 12cqw;
     --bottom: 7cqh;
+    --lockup-top: var(--space-20);
+    --lockup-right: var(--space-20);
   }
   [data-ratio="4x5"] {
     --frame-w: 540px;
     --frame-h: 675px;
     --fx: 0.52;
     --size: 15cqw;
+    --lockup-top: var(--space-16);
+    --lockup-right: var(--space-16);
   }
   [data-ratio="9x16"] {
     --frame-w: 540px;
@@ -40,6 +45,8 @@
     --fx: 0.52;
     --size: 15cqw;
     --bottom: 22cqh; /* above the reply bar and captions that Stories and Reels lay over the bottom */
+    --lockup-top: 14cqh; /* below the profile bar and close button Stories lay over the top */
+    --lockup-right: var(--space-16);
   }
 
   * { box-sizing: border-box; }
@@ -54,7 +61,7 @@
 
   .ad { width: 100%; height: 100%; overflow: hidden; }
 
-  /* The still, and the one line of text over it */
+  /* The still, the one line of text over it, and the lockup */
   .shot { position: relative; width: 100%; height: 100%; overflow: hidden; container-type: size; background: var(--color-ink); }
   .shot img {
     width: 100%;
@@ -78,6 +85,28 @@
     paint-order: stroke fill;
     text-shadow: 0 0.4cqw 1.6cqw color-mix(in srgb, var(--color-ink) 55%, transparent);
   }
+
+  /* The pokayoke lockup, top right, on a canvas chip so it reads over any still (as on PKY-0013) */
+  .lockup {
+    position: absolute;
+    top: var(--lockup-top);
+    right: var(--lockup-right);
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-8) var(--space-16) var(--space-8) var(--space-12);
+    background: var(--color-canvas);
+    border-radius: var(--radius-control);
+    box-shadow: 0 2px 12px color-mix(in srgb, var(--color-ink) 35%, transparent);
+  }
+  .lockup svg { width: 32px; height: 32px; flex: none; }
+  .wordmark { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--color-ink); }
+  [data-ratio="4x5"] .lockup,
+  [data-ratio="9x16"] .lockup { gap: var(--space-8); padding: var(--space-6) var(--space-12) var(--space-6) var(--space-8); }
+  [data-ratio="4x5"] .lockup svg,
+  [data-ratio="9x16"] .lockup svg { width: 28px; height: 28px; }
+  [data-ratio="4x5"] .wordmark,
+  [data-ratio="9x16"] .wordmark { font-size: 21px; }
 </style>
 </head>
 <body>
@@ -85,6 +114,10 @@
   <div class="shot">
     <img src="still.jpg" width="2880" height="1908" alt="">
     <p class="caption">Stay Safe.</p>
+    <div class="lockup">
+      <svg viewBox="1 1 22 22" aria-hidden="true"><path d="M8.1 3.9A9 9 0 0 0 8.1 20.1M15.9 3.9A9 9 0 0 1 15.9 20.1" fill="none" stroke="#111212" stroke-width="3" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" fill="#0B59FE"/></svg>
+      <p class="wordmark">pokayoke</p>
+    </div>
   </div>
 </main>
 </body>

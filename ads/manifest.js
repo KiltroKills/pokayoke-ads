@@ -9,15 +9,15 @@ window.POKAYOKE_ADS = [
   },
   {
     id: 'PKY-0017',
-    alt: 'pokayoke ad. Stay Safe. Over a close-up of the Terminator waxwork at Madame Tussauds London: half the face torn back to a chrome skull with a glowing red eye, in front of a burning red backdrop.',
+    alt: 'pokayoke ad. Stay Safe. Over a close-up of the Terminator waxwork at Madame Tussauds London: half the face torn back to a chrome skull with a glowing red eye, in front of a burning red backdrop. The pokayoke logo sits in the top right corner.',
   },
   {
     id: 'PKY-0016',
-    alt: 'pokayoke ad. Stay Safe. Over the I, Robot army: rows of identical white humanoid robots standing in a warehouse, the one at the front staring at the camera.',
+    alt: 'pokayoke ad. Stay Safe. Over the I, Robot army: rows of identical white humanoid robots standing in a warehouse, the one at the front staring at the camera. The pokayoke logo sits in the top right corner.',
   },
   {
     id: 'PKY-0015',
-    alt: 'pokayoke ad. Stay Safe. Over a Terminator future-war still: an army of chrome robot skeletons with red eyes marching out of blue smoke, the nearest ones carrying miniguns.',
+    alt: 'pokayoke ad. Stay Safe. Over a Terminator future-war still: an army of chrome robot skeletons with red eyes marching out of blue smoke, the nearest ones carrying miniguns. The pokayoke logo sits in the top right corner.',
   },
   {
     id: 'PKY-0013',
