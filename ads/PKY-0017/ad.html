@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-ratio="16x9">
+<head>
+<meta charset="utf-8">
+<title>pokayoke ad PKY-0017</title>
+<script>
+  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 4x5 | 9x16
+  const ratio = new URLSearchParams(location.search).get('ratio');
+  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+</script>
+<link rel="stylesheet" href="../../brand/tokens.css">
+<!--
+  Image: the Terminator waxwork at Madame Tussauds London, half its face torn back to the chrome skull and red eye,
+  as the user sent it (330x219). Pixels from the original photo: "Terminator in Madame Tussaud London" by
+  Daniel Jurena, 2017, CC BY-SA 2.0 (commons.wikimedia.org/wiki/File:Terminator_in_Madame_Tussaud_London_(33465711484).jpg),
+  scaled to still.jpg (2880x1908). CC BY-SA asks for that credit wherever the ad runs, and the figure is Arnold
+  Schwarzenegger's likeness as the Terminator (meme bank MEME-62, "Ask first or skip"): not for paid ads unless licensed.
+  The only text is "Stay Safe.", as the user asked: no label, no lockup, no tagline.
+  The still fills the frame in every ratio; --fx/--fy pick the crop (0 = left/top edge, 1 = right/bottom edge).
+  PKY-0015 to PKY-0017 are the same ad over the three images the user sent.
+-->
+<style>
+  :root {
+    --frame-w: 960px;
+    --frame-h: 540px;
+    --fx: 0.5;
+    --fy: 0.4;
+    --size: 12cqw;
+    --bottom: 7cqh;
+  }
+  [data-ratio="4x5"] {
+    --frame-w: 540px;
+    --frame-h: 675px;
+    --fx: 0.52;
+    --size: 15cqw;
+  }
+  [data-ratio="9x16"] {
+    --frame-w: 540px;
+    --frame-h: 960px;
+    --fx: 0.52;
+    --size: 15cqw;
+    --bottom: 22cqh; /* above the reply bar and captions that Stories and Reels lay over the bottom */
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--color-ink); }
+  body {
+    width: var(--frame-w);
+    height: var(--frame-h);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+  }
+  p { margin: 0; }
+
+  .ad { width: 100%; height: 100%; overflow: hidden; }
+
+  /* The still, and the one line of text over it */
+  .shot { position: relative; width: 100%; height: 100%; overflow: hidden; container-type: size; background: var(--color-ink); }
+  .shot img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: calc(var(--fx) * 100%) calc(var(--fy) * 100%);
+  }
+  .caption {
+    position: absolute;
+    left: 50%;
+    bottom: var(--bottom);
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: var(--size);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    line-height: 1.04;
+    color: var(--color-surface);
+    -webkit-text-stroke: calc(var(--size) * 0.12) var(--color-ink);
+    paint-order: stroke fill;
+    text-shadow: 0 0.4cqw 1.6cqw color-mix(in srgb, var(--color-ink) 55%, transparent);
+  }
+</style>
+</head>
+<body>
+<main class="ad">
+  <div class="shot">
+    <img src="still.jpg" width="2880" height="1908" alt="">
+    <p class="caption">Stay Safe.</p>
+  </div>
+</main>
+</body>
+</html>

@@ -59,5 +59,7 @@ window.POKAYOKE_MEME_SIZES = {
   "talk-to-the-hand": [480, 274],
   "terminator-army-invading": [480, 300],
   "terminator-killer-robot": [480, 270],
+  "i-robot-army": [480, 300],
+  "terminator-waxwork": [480, 318],
   "vicious-cycle": [480, 263]
 };
