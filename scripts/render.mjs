@@ -12,9 +12,10 @@ import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const adsDir = path.join(root, 'ads');
 
-// CSS frame size per ratio; captured at 2x for 1920x1080, 1080x1350, 1080x1920.
+// CSS frame size per ratio; captured at 2x for 1920x1080, 1080x1080, 1080x1350, 1080x1920.
 const RATIOS = {
   '16x9': [960, 540],
+  '1x1': [540, 540],
   '4x5': [540, 675],
   '9x16': [540, 960],
 };

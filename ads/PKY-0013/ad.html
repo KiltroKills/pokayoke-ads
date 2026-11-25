@@ -5,7 +5,7 @@
 <title>pokayoke ad PKY-0013</title>
 <script>
   const ratio = new URLSearchParams(location.search).get('ratio');
-  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+  if (['16x9', '1x1', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
 </script>
 <link rel="stylesheet" href="../../brand/tokens.css">
 <!--
@@ -15,10 +15,12 @@
   The only branding is the lockup, overlaid bottom-left on the photo (the user's ask). The hook fills the photo's
   lower left (x 3-22%, y 49-85%), so the lockup sits on the wall below it (y over 86%) and never covers it.
   Layouts: 16:9 the whole photo, the caption on a plate over the blank wall top-left.
-           4:5 and 9:16 the caption above, then the photo cropped on the right (city view) to 1.45:1.
+           1:1, 4:5 and 9:16 the caption above, then the photo cropped on the right (city view) to 1.45:1; a square
+           crop cannot hold both the hook and the worker, so 1:1 keeps that crop and sets the caption in two lines.
 -->
 <style>
   :root { --frame-w: 960px; --frame-h: 540px; }
+  [data-ratio="1x1"] { --frame-w: 540px; --frame-h: 540px; }
   [data-ratio="4x5"] { --frame-w: 540px; --frame-h: 675px; }
   [data-ratio="9x16"] { --frame-w: 540px; --frame-h: 960px; }
 
@@ -50,6 +52,7 @@
     line-height: 1.08;
   }
   .caption span { display: block; text-wrap: balance; }
+  [data-ratio="1x1"] .caption { font-size: 42px; letter-spacing: -1.4px; }
   [data-ratio="9x16"] .caption { padding: var(--space-48) var(--space-32); font-size: 70px; letter-spacing: -2.6px; }
   [data-ratio="16x9"] .caption {
     position: absolute;
@@ -69,7 +72,8 @@
   [data-ratio="16x9"] .photo { flex: 1; min-height: 0; }
   .frame { position: relative; height: 100%; }
   .frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  /* Tall frames show x 0 to 83% of the still (1160 of 1400 px): hook to worker, the city view cut */
+  /* 1:1 and the tall frames show x 0 to 83% of the still (1160 of 1400 px): hook to worker, the city view cut */
+  [data-ratio="1x1"] .frame img,
   [data-ratio="4x5"] .frame img,
   [data-ratio="9x16"] .frame img { height: auto; aspect-ratio: 1160 / 792; object-position: left center; }
   .ring {
@@ -82,6 +86,7 @@
     border-radius: 50%;
     transform: rotate(-8deg);
   }
+  [data-ratio="1x1"] .ring,
   [data-ratio="4x5"] .ring,
   [data-ratio="9x16"] .ring { left: 0.8%; width: 29%; height: 39.5%; }
 
@@ -100,6 +105,7 @@
   .lockup svg { width: 32px; height: 32px; flex: none; }
   .wordmark { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
   .byline { margin-top: var(--space-2); font-size: 12px; font-weight: 500; color: var(--color-muted); line-height: 1.2; }
+  [data-ratio="1x1"] .lockup,
   [data-ratio="4x5"] .lockup,
   [data-ratio="9x16"] .lockup {
     left: var(--space-6);
@@ -107,10 +113,13 @@
     gap: var(--space-8);
     padding: var(--space-6) var(--space-12) var(--space-6) var(--space-8);
   }
+  [data-ratio="1x1"] .lockup svg,
   [data-ratio="4x5"] .lockup svg,
   [data-ratio="9x16"] .lockup svg { width: 28px; height: 28px; }
+  [data-ratio="1x1"] .wordmark,
   [data-ratio="4x5"] .wordmark,
   [data-ratio="9x16"] .wordmark { font-size: 19px; }
+  [data-ratio="1x1"] .byline,
   [data-ratio="4x5"] .byline,
   [data-ratio="9x16"] .byline { margin-top: var(--space-2); font-size: 11px; }
 </style>

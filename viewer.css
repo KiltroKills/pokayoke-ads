@@ -115,6 +115,7 @@ a.title:focus-visible {
 
 /* Every ad, newest first. Columns narrow with the frame so tall frames sit side by side. */
 body[data-ratio="16x9"] { --col: 520px; }
+body[data-ratio="1x1"] { --col: 400px; }
 body[data-ratio="4x5"] { --col: 360px; }
 body[data-ratio="9x16"] { --col: 280px; }
 .gallery {
@@ -146,6 +147,7 @@ body[data-ratio="9x16"] { --col: 280px; }
   color: var(--color-muted);
   text-align: center;
 }
+body[data-ratio="1x1"] .ad-missing { aspect-ratio: 1 / 1; }
 body[data-ratio="4x5"] .ad-missing { aspect-ratio: 4 / 5; }
 body[data-ratio="9x16"] .ad-missing { aspect-ratio: 9 / 16; }
 .ad-meta {

@@ -2,8 +2,8 @@
 // The ratio switch applies to all ads; ?ratio=4x5 links a frame, #PKY-0001 links one ad.
 // Images live at ads/<id>/<ratio>.png. An animated ad (`video: true`) also has ads/<id>/<ratio>.mp4: it plays
 // muted and looping while it is on screen, with the PNG as its poster, and Download saves the MP4.
-const RATIOS = { '16x9': [1920, 1080], '4x5': [1080, 1350], '9x16': [1080, 1920] };
-const LABELS = { '16x9': '16:9', '4x5': '4:5', '9x16': '9:16' };
+const RATIOS = { '16x9': [1920, 1080], '1x1': [1080, 1080], '4x5': [1080, 1350], '9x16': [1080, 1920] };
+const LABELS = { '16x9': '16:9', '1x1': '1:1', '4x5': '4:5', '9x16': '9:16' };
 const ADS = window.POKAYOKE_ADS ?? [];
 const DOWNLOAD_ICON =
   '<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 15V3m9 12v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10l5 5l5-5"/></g></svg>';
