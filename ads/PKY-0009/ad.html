@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" data-ratio="16x9">
+<head>
+<meta charset="utf-8">
+<title>pokayoke ad PKY-0009</title>
+<script>
+  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 4x5 | 9x16
+  const ratio = new URLSearchParams(location.search).get('ratio');
+  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+</script>
+<link rel="stylesheet" href="../../brand/tokens.css">
+<!--
+  The finding strip from pokayoke.sh ("Findings on the public disclosure record"), stood up as a list:
+  each row is the site's score chip, severity word, repo and advisory ID, copied from the strip on 2026-11-25.
+  Headline from the site's footer line "pokayoke finds, verifies and discloses."
+  16:9 and 4:5 show 5 findings; 9:16 shows 7 (.more rows).
+-->
+<style>
+  :root {
+    --frame-w: 960px;
+    --frame-h: 540px;
+    --pad: var(--space-48);
+    --mark: 32px;
+    --wordmark: 20px;
+    --byline: 12px;
+    --h1: 52px;
+    --url: 15px;
+    --row: 15px;
+    --row-pad: var(--space-12);
+  }
+  [data-ratio="4x5"] {
+    --frame-w: 540px;
+    --frame-h: 675px;
+    --pad: var(--space-32);
+    --mark: 30px;
+    --wordmark: 19px;
+    --byline: 11px;
+    --h1: 44px;
+    --url: 14px;
+    --row: 15px;
+    --row-pad: var(--space-12);
+  }
+  [data-ratio="9x16"] {
+    --frame-w: 540px;
+    --frame-h: 960px;
+    --pad: var(--space-40);
+    --mark: 34px;
+    --wordmark: 21px;
+    --byline: 12px;
+    --h1: 56px;
+    --url: 16px;
+    --row: 16px;
+    --row-pad: var(--space-16);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--color-canvas); }
+  body {
+    width: var(--frame-w);
+    height: var(--frame-h);
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  p, ul { margin: 0; padding: 0; }
+
+  .ad {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: var(--pad);
+    display: grid;
+    gap: var(--space-32);
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    grid-template-areas: "lockup" "title" "list" "url";
+  }
+  [data-ratio="16x9"] .ad {
+    column-gap: var(--space-48);
+    grid-template-columns: minmax(0, 1fr) 420px;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-areas: "lockup list" "title list" "url list";
+  }
+  [data-ratio="4x5"] .ad { gap: var(--space-24); }
+
+  .lockup { grid-area: lockup; display: flex; align-items: center; gap: var(--space-12); }
+  .lockup svg { width: var(--mark); height: var(--mark); flex: none; }
+  .wordmark { font-size: var(--wordmark); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .byline { margin-top: var(--space-4); font-size: var(--byline); font-weight: 500; color: var(--color-muted); line-height: 1.2; }
+
+  .title {
+    grid-area: title;
+    align-self: end;
+    font-size: var(--h1);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.04;
+  }
+  .title span { display: block; }
+  [data-ratio="4x5"] .title span { display: inline; }
+
+  .url { grid-area: url; font-family: var(--font-mono); font-size: var(--url); font-weight: 500; }
+
+  /* The strip, as a list */
+  .list {
+    grid-area: list;
+    align-self: center;
+    list-style: none;
+    background: var(--color-surface);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-surface);
+    font-family: var(--font-mono);
+    font-size: var(--row);
+    line-height: 1.4;
+  }
+  [data-ratio="4x5"] .list,
+  [data-ratio="9x16"] .list { align-self: start; }
+  .finding {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: var(--space-16);
+    align-items: center;
+    padding: var(--row-pad) var(--space-20);
+  }
+  .finding + .finding { border-top: 1px solid var(--color-hairline); }
+  .score {
+    grid-row: span 2;
+    padding: var(--space-2) var(--space-8);
+    border-radius: var(--radius-control);
+    font-weight: 700;
+    color: var(--color-band);
+    background: var(--color-critical);
+  }
+  .sev { margin-right: var(--space-8); color: var(--color-critical-word); }
+  [data-tone="high"] .score { background: var(--color-high); }
+  [data-tone="high"] .sev { color: var(--color-high-word); }
+  .line { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .id { color: var(--color-muted); }
+  .more { display: none; }
+  [data-ratio="9x16"] .more { display: grid; }
+</style>
+</head>
+<body>
+<main class="ad">
+  <header class="lockup">
+    <svg viewBox="1 1 22 22" aria-hidden="true"><path d="M8.1 3.9A9 9 0 0 0 8.1 20.1M15.9 3.9A9 9 0 0 1 15.9 20.1" fill="none" stroke="#111212" stroke-width="3" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" fill="#0B59FE"/></svg>
+    <div>
+      <p class="wordmark">pokayoke</p>
+      <p class="byline">by EZO Labs Security</p>
+    </div>
+  </header>
+
+  <p class="title"><span>Found.</span> <span>Verified.</span> <span>Disclosed.</span></p>
+
+  <ul class="list">
+    <li class="finding" data-tone="critical"><span class="score">9.8</span><span class="line"><span class="sev">critical</span>christianhelle/refitter</span><span class="line id">GHSA-h924-jfhp-9vjr</span></li>
+    <li class="finding" data-tone="critical"><span class="score">9.4</span><span class="line"><span class="sev">critical</span>Privasys/identity-platform</span><span class="line id">GHSA-mwmx-rgj6-f8mc</span></li>
+    <li class="finding" data-tone="critical"><span class="score">9.1</span><span class="line"><span class="sev">critical</span>MervinPraison/PraisonAI</span><span class="line id">GHSA-2v5m-57pq-r9j3</span></li>
+    <li class="finding" data-tone="critical"><span class="score">9.0</span><span class="line"><span class="sev">critical</span>siyuan-note/siyuan</span><span class="line id">GHSA-vjx3-h5hv-9fm4</span></li>
+    <li class="finding" data-tone="high"><span class="score">8.7</span><span class="line"><span class="sev">high</span>friendica/friendica</span><span class="line id">CVE-2026-136123</span></li>
+    <li class="finding more" data-tone="high"><span class="score">8.2</span><span class="line"><span class="sev">high</span>graphql-hive/gateway</span><span class="line id">GHSA-364q-4p2h-gcf3</span></li>
+    <li class="finding more" data-tone="high"><span class="score">7.8</span><span class="line"><span class="sev">high</span>modelcontextprotocol/servers</span><span class="line id">GHSA-6hqx-gqrx-c5r2</span></li>
+  </ul>
+
+  <p class="url">pokayoke.sh</p>
+</main>
+</body>
+</html>

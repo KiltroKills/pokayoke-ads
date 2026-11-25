@@ -31,6 +31,9 @@ git config credential.https://KiltroKills@github.com.helper \
 
 | ID | Message | Files |
 |---|---|---|
+| PKY-0009 | "Found. Verified. Disclosed." over the pokayoke.sh finding strip stood up as a list: score chip, severity, repo and advisory ID for five findings (seven in 9:16) from its public disclosure record | [`ads/PKY-0009/`](ads/PKY-0009/) |
+| PKY-0008 | The "Paste into your agent" card from pokayoke.sh in its dark theme: the line to paste and the blue Copy button | [`ads/PKY-0008/`](ads/PKY-0008/) |
+| PKY-0007 | The pokayoke.sh hero: "Find exploits before attackers do." and its three blue ticks (GitHub App, proven or not, private fix) | [`ads/PKY-0007/`](ads/PKY-0007/) |
 | PKY-0006 | Flex Tape meme with the bottom text, in quotes, "Flag critical security issues." (meme bank MEME-12; `captioned.png` is the meme alone) | [`ads/PKY-0006/`](ads/PKY-0006/) |
 | PKY-0005 | "Who's next?" Grim reaper doors meme: GitHub and Meta already hit, the last door is YOUR REPO ([TechCrunch](https://techcrunch.com/2026/05/20/github-says-hackers-stole-data-from-thousands-of-internal-repositories/), [SecurityWeek](https://www.securityweek.com/meta-says-hackers-took-code-personal-data-of-1500-in-github-breach/)) | [`ads/PKY-0005/`](ads/PKY-0005/) |
 | PKY-0001 | Link your repo, scan for vulnerabilities, get one clear critical count | [`ads/PKY-0001/`](ads/PKY-0001/) |
@@ -49,7 +52,8 @@ Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1
    overflows or overlaps another.
 3. Add it to the top of `ads/manifest.js` (ID and alt text); the gallery shows every entry in that order.
 
-Brand colors, type and radii live in `brand/tokens.css`; the mark is `brand/pokayoke-mark.svg`, both taken from
+Brand colors (with the site's severity chips and its dark theme, `--color-band-*`), type and radii live in
+`brand/tokens.css`; the mark is `brand/pokayoke-mark.svg`, both taken from
 pokayoke.sh.
 
 ## Meme bank

@@ -2,6 +2,18 @@
 // Images live at ads/<id>/<ratio>.png; alt is read aloud in place of the image.
 window.POKAYOKE_ADS = [
   {
+    id: 'PKY-0009',
+    alt: 'pokayoke ad. Found. Verified. Disclosed. A list of findings from the pokayoke.sh public disclosure record, each with its score chip, severity, repo and advisory ID: 9.8 critical christianhelle/refitter, 9.4 critical Privasys/identity-platform, 9.1 critical MervinPraison/PraisonAI, 9.0 critical siyuan-note/siyuan, 8.7 high friendica/friendica. pokayoke.sh',
+  },
+  {
+    id: 'PKY-0008',
+    alt: 'pokayoke ad, dark. The "Paste into your agent" card from pokayoke.sh: a robot icon, the line "Read pokayoke.sh/skill.md and review this repo for exploitable bugs", and a blue Copy button with a pointer on it. pokayoke.sh',
+  },
+  {
+    id: 'PKY-0007',
+    alt: 'pokayoke ad. The pokayoke.sh hero: Find exploits before attackers do. Three blue ticks: Watches every push with the GitHub App. Marks each finding proven or not. Sends the fix privately on paid plans. pokayoke.sh',
+  },
+  {
     id: 'PKY-0006',
     alt: 'pokayoke ad. The Flex Tape meme: a pitchman with a tank of water gushing from a hole, then a hand slapping tape over the leak, with the bottom text in quotes: "Flag critical security issues." pokayoke watches every push, runs an exploit against what it finds, and flags the critical issues before attackers do. Find exploits before attackers do. pokayoke.sh',
   },

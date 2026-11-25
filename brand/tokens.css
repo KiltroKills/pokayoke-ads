@@ -9,8 +9,21 @@
   --color-hairline: #e6e4de;
   --color-accent: #0b59fe; /* brand mark, primary action, focus ring only */
 
+  --color-hairline-strong: color-mix(in oklab, var(--color-hairline) 52%, var(--color-ink)); /* input and code borders */
+
   /* Status, data only */
-  --color-critical: #fd3b3f;
+  --color-critical: #fd3b3f; /* score chip fill */
+  --color-critical-word: #d00016; /* the word "critical" on canvas */
+  --color-high: #f57404; /* score chip fill */
+  --color-high-word: #b5520f; /* the word "high" on canvas */
+
+  /* Dark theme of pokayoke.sh (the band), sampled from its computed styles */
+  --color-band: #0b0f1a;
+  --color-band-surface: #1a1e29;
+  --color-band-hairline: #2a2e38;
+  --color-band-hairline-strong: #484c55;
+  --color-band-muted: #bfc0c2;
+  --color-band-accent-edge: #92b9ff; /* the agent card's border on the band */
 
   /* Derived for the ink surface */
   --color-on-ink: var(--color-canvas);

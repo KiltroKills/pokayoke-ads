@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" data-ratio="16x9">
+<head>
+<meta charset="utf-8">
+<title>pokayoke ad PKY-0008</title>
+<script>
+  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 4x5 | 9x16
+  const ratio = new URLSearchParams(location.search).get('ratio');
+  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+</script>
+<link rel="stylesheet" href="../../brand/tokens.css">
+<!--
+  The "Paste into your agent" card from the pokayoke.sh hero, in the site's dark theme: the robot icon,
+  the one line to paste and the blue Copy button, with a pointer on it. No other copy.
+  Colors are the site's dark computed styles (brand/tokens.css, --color-band-*).
+-->
+<style>
+  :root {
+    --frame-w: 960px;
+    --frame-h: 540px;
+    --bar-pad: var(--space-32);
+    --mark: 32px;
+    --wordmark: 20px;
+    --byline: 12px;
+    --url: 15px;
+    --card-w: 560px;
+    --card-pad: var(--space-32);
+    --icon: 44px;
+    --title: 32px;
+    --code: 17px;
+    --button: 17px;
+    --pointer: 30px;
+  }
+  [data-ratio="4x5"] {
+    --frame-w: 540px;
+    --frame-h: 675px;
+    --bar-pad: var(--space-24);
+    --mark: 30px;
+    --wordmark: 19px;
+    --byline: 11px;
+    --url: 14px;
+    --card-w: 468px;
+    --card-pad: var(--space-32);
+    --icon: 48px;
+    --title: 32px;
+    --code: 18px;
+    --button: 18px;
+    --pointer: 30px;
+  }
+  [data-ratio="9x16"] {
+    --frame-w: 540px;
+    --frame-h: 960px;
+    --bar-pad: var(--space-24);
+    --mark: 34px;
+    --wordmark: 21px;
+    --byline: 12px;
+    --url: 15px;
+    --card-w: 468px;
+    --card-pad: var(--space-40);
+    --icon: 56px;
+    --title: 36px;
+    --code: 20px;
+    --button: 20px;
+    --pointer: 34px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--color-band); }
+  body {
+    width: var(--frame-w);
+    height: var(--frame-h);
+    font-family: var(--font-display);
+    color: var(--color-on-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  p { margin: 0; }
+
+  .ad {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  /* The site's top bar, dark */
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-16) var(--bar-pad);
+    border-bottom: 1px solid var(--color-band-hairline);
+  }
+  .lockup { display: flex; align-items: center; gap: var(--space-12); }
+  .lockup svg { width: var(--mark); height: var(--mark); flex: none; }
+  .wordmark { font-size: var(--wordmark); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .byline { margin-top: var(--space-4); font-size: var(--byline); font-weight: 500; color: var(--color-band-muted); line-height: 1.2; }
+  .url { font-family: var(--font-mono); font-size: var(--url); font-weight: 500; }
+
+  .stage { min-height: 0; display: grid; place-items: center; }
+
+  /* The agent card */
+  .card {
+    width: var(--card-w);
+    padding: var(--card-pad);
+    display: grid;
+    gap: var(--space-20);
+    background: var(--color-band-surface);
+    border: 1px solid var(--color-band-accent-edge);
+    border-radius: var(--radius-surface);
+  }
+  .icon { width: var(--icon); height: var(--icon); }
+  .title { font-size: var(--title); font-weight: 800; letter-spacing: -0.025em; line-height: 1.2; }
+  .code {
+    padding: var(--space-12) var(--space-16);
+    font-family: var(--font-mono);
+    font-size: var(--code);
+    line-height: 1.5;
+    text-wrap: balance; /* no lone "bugs" on the last line */
+    background: var(--color-band-surface);
+    border: 1px solid var(--color-band-hairline-strong);
+    border-radius: var(--radius-control);
+  }
+  .copy {
+    position: relative;
+    margin-top: calc(-1 * var(--space-4));
+    padding: var(--space-12);
+    text-align: center;
+    font-size: var(--button);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-surface);
+    background: var(--color-accent);
+    border-radius: var(--radius-control);
+  }
+  .pointer {
+    position: absolute;
+    right: 22%;
+    top: 55%;
+    width: var(--pointer);
+    height: var(--pointer);
+  }
+  .pointer path { fill: var(--color-surface); stroke: var(--color-ink); stroke-width: 1.5; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+<main class="ad">
+  <header class="bar">
+    <div class="lockup">
+      <svg viewBox="1 1 22 22" aria-hidden="true"><path d="M8.1 3.9A9 9 0 0 0 8.1 20.1M15.9 3.9A9 9 0 0 1 15.9 20.1" fill="none" stroke="#fbfbf8" stroke-width="3" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" fill="#0B59FE"/></svg>
+      <div>
+        <p class="wordmark">pokayoke</p>
+        <p class="byline">by EZO Labs Security</p>
+      </div>
+    </div>
+    <p class="url">pokayoke.sh</p>
+  </header>
+
+  <section class="stage">
+    <div class="card">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2m16 0h2m-7-1v2m-6-2v2"/></svg>
+      <p class="title">Paste into your agent</p>
+      <p class="code">Read pokayoke.sh/skill.md and review this repo for exploitable bugs</p>
+      <p class="copy">Copy<svg class="pointer" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.04 4.65a.5.5 0 0 1 .61-.61l15.2 5.18a.5.5 0 0 1 .03.93l-6.34 2.56a1 1 0 0 0-.55.55l-2.56 6.34a.5.5 0 0 1-.93-.03z"/></svg></p>
+    </div>
+  </section>
+</main>
+</body>
+</html>
