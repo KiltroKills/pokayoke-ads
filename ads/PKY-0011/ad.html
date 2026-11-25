@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" data-ratio="16x9">
+<head>
+<meta charset="utf-8">
+<title>pokayoke ad PKY-0011</title>
+<script>
+  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 4x5 | 9x16
+  const ratio = new URLSearchParams(location.search).get('ratio');
+  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+</script>
+<link rel="stylesheet" href="../../brand/tokens.css">
+<!--
+  Meme: the Terminator 2 minigun still (imgflip template 66899831, 1280x720), upscaled 1.5x to still.jpg (1920x1080).
+  The T-800 is labelled pokayoke and the bottom text is "Have them on your side."
+  Rights: a film still of a real actor (meme bank MEME-55, "Ask first or skip"): not for paid ads unless licensed.
+  The still covers the shot area in every ratio; --fx/--fy pick the crop (0 = left/top edge, 1 = right/bottom edge),
+  and each label is placed in the image's own coordinates (--px/--py), so it stays on its person whatever the crop.
+-->
+<style>
+  :root {
+    --frame-w: 960px;
+    --frame-h: 540px;
+    --ar: 1.7778; /* 1920 / 1080 */
+    --fx: 0.5;
+    --fy: 0.3;
+    --caption: 6.4cqw;
+    --label: 3.6cqw;
+  }
+  [data-ratio="4x5"] {
+    --frame-w: 540px;
+    --frame-h: 675px;
+    --fx: 0.45;
+    --fy: 0.5;
+    --caption: 8cqw;
+    --label: 5.4cqw;
+  }
+  [data-ratio="9x16"] {
+    --frame-w: 540px;
+    --frame-h: 960px;
+    --fx: 0.45;
+    --fy: 0.5;
+    --caption: 8.6cqw;
+    --label: 5.4cqw;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--color-canvas); }
+  body {
+    width: var(--frame-w);
+    height: var(--frame-h);
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  p { margin: 0; }
+
+  .ad {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 476px 1fr;
+  }
+  [data-ratio="4x5"] .ad { grid-template-rows: 540px 1fr; }
+  [data-ratio="9x16"] .ad { grid-template-rows: 640px 1fr; }
+
+  /* The still, its labels and its bottom text */
+  .shot { position: relative; overflow: hidden; container-type: size; background: var(--color-ink); }
+  .shot img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: calc(var(--fx) * 100%) calc(var(--fy) * 100%);
+  }
+
+  .meme-text {
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    line-height: 1.04;
+    color: var(--color-surface);
+    paint-order: stroke fill;
+    text-shadow: 0 0.4cqw 1.2cqw color-mix(in srgb, var(--color-ink) 45%, transparent);
+  }
+  /* A label sits at --px/--py of the image itself: the same math object-fit: cover and object-position use */
+  .label {
+    --w: max(100cqw, calc(100cqh * var(--ar)));
+    --h: max(100cqh, calc(100cqw / var(--ar)));
+    position: absolute;
+    left: calc((100cqw - var(--w)) * var(--fx) + var(--w) * var(--px));
+    top: calc((100cqh - var(--h)) * var(--fy) + var(--h) * var(--py));
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-size: var(--label);
+    -webkit-text-stroke: 0.5cqw var(--color-ink);
+  }
+  .caption {
+    position: absolute;
+    left: 50%;
+    bottom: 4cqh;
+    width: 94%;
+    transform: translateX(-50%);
+    text-align: center;
+    text-wrap: balance;
+    font-size: var(--caption);
+    -webkit-text-stroke: 0.8cqw var(--color-ink);
+  }
+
+  /* The brand band */
+  .band {
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-16);
+    padding: 0 var(--space-32);
+  }
+  .lockup { display: flex; align-items: center; gap: var(--space-12); flex: none; }
+  .lockup svg { width: 30px; height: 30px; flex: none; }
+  .wordmark { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .byline { display: none; margin-top: var(--space-4); font-size: 13px; font-weight: 500; color: var(--color-muted); line-height: 1.2; }
+  .tagline { font-size: 15px; font-weight: 600; line-height: 1.35; text-align: right; }
+  .url { margin-left: var(--space-12); font-family: var(--font-mono); font-weight: 400; color: var(--color-muted); }
+
+  [data-ratio="4x5"] .band { padding: 0 var(--space-24); }
+  [data-ratio="4x5"] .tagline { font-size: 14px; }
+  [data-ratio="4x5"] .url,
+  [data-ratio="9x16"] .url { display: block; margin-left: 0; }
+
+  [data-ratio="9x16"] .band { flex-direction: column; align-items: flex-start; justify-content: center; gap: var(--space-24); padding: 0 var(--space-40); }
+  [data-ratio="9x16"] .lockup svg { width: 48px; height: 48px; }
+  [data-ratio="9x16"] .wordmark { font-size: 32px; }
+  [data-ratio="9x16"] .byline { display: block; font-size: 15px; }
+  [data-ratio="9x16"] .tagline { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; text-align: left; }
+  [data-ratio="9x16"] .url { margin-top: var(--space-8); font-size: 18px; letter-spacing: 0; }
+</style>
+</head>
+<body>
+<main class="ad">
+  <div class="shot">
+    <img src="still.jpg" width="1920" height="1080" alt="">
+    <p class="meme-text label" style="--px: 0.33; --py: 0.42">pokayoke</p>
+    <p class="meme-text caption">Have them on your side.</p>
+  </div>
+
+  <footer class="band">
+    <div class="lockup">
+      <svg viewBox="1 1 22 22" aria-hidden="true"><path d="M8.1 3.9A9 9 0 0 0 8.1 20.1M15.9 3.9A9 9 0 0 1 15.9 20.1" fill="none" stroke="#111212" stroke-width="3" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" fill="#0B59FE"/></svg>
+      <div>
+        <p class="wordmark">pokayoke</p>
+        <p class="byline">by EZO Labs Security</p>
+      </div>
+    </div>
+    <p class="tagline">Find exploits before attackers do.<span class="url">pokayoke.sh</span></p>
+  </footer>
+</main>
+</body>
+</html>

@@ -35,6 +35,24 @@
   .editor .c { color: var(--color-on-ink-muted); }
   .editor .hot { background: color-mix(in srgb, var(--color-critical) 30%, var(--color-ink)); margin: 0 calc(-1 * var(--space-16)); padding: 0 var(--space-16); }
   .label { font-size: 26px; font-weight: 800; letter-spacing: -0.6px; }
+
+  /* Terminator vision: red machine view, scan lines, a locked target */
+  .hud {
+    --hud-ground: color-mix(in oklab, var(--color-critical) 68%, var(--color-ink));
+    --hud-line: color-mix(in oklab, var(--color-critical) 52%, var(--color-ink));
+    aspect-ratio: 4 / 3;
+    align-content: space-between;
+    background: repeating-linear-gradient(0deg, transparent 0 3px, var(--hud-line) 3px 4px), var(--hud-ground);
+    color: var(--color-canvas);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+  .hud-top { display: flex; justify-content: space-between; gap: var(--space-16); }
+  .hud .chosen { color: var(--hud-ground); background: var(--color-canvas); padding: 0 var(--space-4); margin-left: calc(-1 * var(--space-4)); }
+  .hud-code { margin: 0; font-family: inherit; font-size: 13px; letter-spacing: 0; color: color-mix(in oklab, var(--color-critical) 38%, var(--color-canvas)); }
+  .hud-code .lock { color: var(--color-canvas); outline: 2px solid var(--color-canvas); outline-offset: 4px; }
+  .hud-target { justify-self: start; padding: var(--space-8) var(--space-12); border: 1px solid var(--color-canvas); }
 </style>
 </head>
 <body>
@@ -118,6 +136,18 @@
       <div class="code mono">OPENAI_API_KEY=sk-••••••••<br>STRIPE_SECRET=sk_live_••••<br>DATABASE_URL=postgres://••••</div>
     </div>
   </div>
+</section>
+
+<!-- Terminator vision, our own: the blank of ads/PKY-0012 (no bottom text), reds mixed from --color-critical -->
+<section class="card hud mono" id="terminator-vision">
+  <div class="hud-top">
+    <p>SCAN MODE: EVERY PUSH<br>FILE: API/AUTH/LOGIN.TS</p>
+    <p>POSSIBLE RESPONSE:<br>IGNORE<br>LGTM<br><span class="chosen">SEND FIX PRIVATELY</span></p>
+  </div>
+  <pre class="hud-code">const user = await db.query(
+  <span class="lock">`SELECT * FROM users WHERE email = '${email}'`</span>
+);</pre>
+  <p class="hud-target">SQL INJECTION<br>EXPLOIT: PROVEN<br>CVSS 9.8 CRITICAL</p>
 </section>
 
 </body>

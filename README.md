@@ -31,6 +31,9 @@ git config credential.https://KiltroKills@github.com.helper \
 
 | ID | Message | Files |
 |---|---|---|
+| PKY-0012 | Terminator vision, built by us: a red HUD locks onto an SQL injection and picks "send fix privately". Bottom text "Have them on your side." (meme bank MEME-56, free to run) | [`ads/PKY-0012/`](ads/PKY-0012/) |
+| PKY-0011 | Terminator 2 minigun still, the T-800 labelled pokayoke. Bottom text "Have them on your side." (MEME-55; film still, not for paid ads unless licensed) | [`ads/PKY-0011/`](ads/PKY-0011/) |
+| PKY-0010 | Terminator 2 motorcycle still, the T-800 labelled pokayoke and the boy labelled your repo. Bottom text "Have them on your side." (MEME-54; film still, not for paid ads unless licensed) | [`ads/PKY-0010/`](ads/PKY-0010/) |
 | PKY-0009 | "Found. Verified. Disclosed." over the pokayoke.sh finding strip stood up as a list: score chip, severity, repo and advisory ID for five findings (seven in 9:16) from its public disclosure record | [`ads/PKY-0009/`](ads/PKY-0009/) |
 | PKY-0008 | The "Paste into your agent" card from pokayoke.sh in its dark theme: the line to paste and the blue Copy button | [`ads/PKY-0008/`](ads/PKY-0008/) |
 | PKY-0007 | The pokayoke.sh hero: "Find exploits before attackers do." and its three blue ticks (GitHub App, proven or not, private fix) | [`ads/PKY-0007/`](ads/PKY-0007/) |
@@ -82,4 +85,5 @@ To add a meme, add an entry to `memes/manifest.js` (its imgflip template ID, cap
 `npm run memes`. It saves the blank template as `memes/img/<slug>.webp` (at most 480x720, needs ImageMagick) and
 writes every image's size to `memes/sizes.js`; `npm run memes -- --force` downloads them all again. For a format we
 rebuild ourselves, add a `.card` with the slug as its `id` to `memes/formats/formats.html`, leave out `imgflip`,
-and run `npm run meme-formats` before `npm run memes`.
+and run `npm run meme-formats` before `npm run memes`. A still that is on neither (MEME-54, supplied by the user) is
+saved by hand as `memes/img/<slug>.webp`, at most 480x720, with no `imgflip` on its entry.

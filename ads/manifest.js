@@ -2,6 +2,18 @@
 // Images live at ads/<id>/<ratio>.png; alt is read aloud in place of the image.
 window.POKAYOKE_ADS = [
   {
+    id: 'PKY-0012',
+    alt: 'pokayoke ad. Terminator vision: a red machine-vision view of a login handler, a target locked on its SQL query reading SQL injection, exploit proven, CVSS 9.8 critical, and a possible-response list of ignore, LGTM and the chosen send fix privately. Bottom text: Have them on your side. pokayoke. Find exploits before attackers do. pokayoke.sh',
+  },
+  {
+    id: 'PKY-0011',
+    alt: 'pokayoke ad. The Terminator 2 minigun scene: the T-800, labelled pokayoke, firing a minigun. Bottom text: Have them on your side. pokayoke. Find exploits before attackers do. pokayoke.sh',
+  },
+  {
+    id: 'PKY-0010',
+    alt: 'pokayoke ad. The Terminator 2 motorcycle scene: the T-800, labelled pokayoke, aiming a shotgun with the boy, labelled your repo, riding behind him. Bottom text: Have them on your side. pokayoke. Find exploits before attackers do. pokayoke.sh',
+  },
+  {
     id: 'PKY-0009',
     alt: 'pokayoke ad. Found. Verified. Disclosed. A list of findings from the pokayoke.sh public disclosure record, each with its score chip, severity, repo and advisory ID: 9.8 critical christianhelle/refitter, 9.4 critical Privasys/identity-platform, 9.1 critical MervinPraison/PraisonAI, 9.0 critical siyuan-note/siyuan, 8.7 high friendica/friendica. pokayoke.sh',
   },
