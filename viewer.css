@@ -115,7 +115,7 @@ a.title:focus-visible {
 
 /* Every ad, newest first. Columns narrow with the frame so tall frames sit side by side. */
 body[data-ratio="16x9"] { --col: 520px; }
-body[data-ratio="1x1"] { --col: 400px; }
+body[data-ratio="1x1"] { --col: 360px; }
 body[data-ratio="4x5"] { --col: 360px; }
 body[data-ratio="9x16"] { --col: 280px; }
 .gallery {
@@ -164,10 +164,21 @@ body[data-ratio="9x16"] .ad-missing { aspect-ratio: 9 / 16; }
 .empty a { color: var(--text); font-weight: 600; }
 
 @media (max-width: 480px) {
-  /* The name and the ratio switch share one line down to 320px wide; tighter padding keeps them there. */
+  /* The name and the ratio switch share one line; tighter padding keeps them there. */
   .bar { gap: var(--space-12); padding: var(--space-12) var(--space-16); }
   .ratios button { min-width: var(--control-h); padding: 0 var(--space-8); }
   .gallery { padding: var(--space-16); gap: var(--space-24); }
+}
+@media (max-width: 384px) {
+  /* Below 385px the four ratio buttons need the room: the name shows as the mark alone, still read aloud. */
+  .title-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .download, .ratios button { transition: none; }

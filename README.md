@@ -3,7 +3,7 @@
 Ad creatives for [pokayoke](https://pokayoke.sh) by EZO Labs Security, and the public page that shows them.
 
 **Viewer:** https://kiltrokills.github.io/pokayoke-ads/ (GitHub Pages on the mirror `KiltroKills/pokayoke-ads`).
-It shows every ad, newest first, each with its ID and a Download button, and a 16:9 / 4:5 / 9:16 switch in the top
+It shows every ad, newest first, each with its ID and a Download button, and a 16:9 / 1:1 / 4:5 / 9:16 switch in the top
 right that changes all of them. Link a frame and an ad with `?ratio=9x16#PKY-0001`.
 
 `singularitystudiosdev/pokayoke-ads` is the main copy. GitHub has flagged that account (Actions off, repos hidden
@@ -47,17 +47,18 @@ git config credential.https://KiltroKills@github.com.helper \
 
 IDs are never reused: PKY-0002 to PKY-0004 and PKY-0012 were published briefly and withdrawn.
 
-Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1920x1080), `4x5.png` (1080x1350),
-`9x16.png` (1080x1920). An animated ad also has one MP4 per ratio (H.264, 30 fps, no sound), made from its footage
+Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1920x1080), `1x1.png` (1080x1080),
+`4x5.png` (1080x1350), `9x16.png` (1080x1920). An animated ad also has one MP4 per ratio (H.264, 30 fps, no sound), made from its footage
 (`clip.mp4`); its PNGs are the posters.
 
 ## Make or change an ad
 
-1. Copy `ads/PKY-0001/` to the next unused ID (one past the highest folder in `ads/`) and edit its `ad.html`. One template serves all three
-   ratios through `html[data-ratio]`.
+1. Copy `ads/PKY-0001/` to the next unused ID (one past the highest folder in `ads/`) and edit its `ad.html`. One template serves all four
+   ratios through `html[data-ratio]`; its first `<script>` lists the ratios it accepts.
 2. `npm install`, then `npm run render` (or `npm run render -- PKY-00NN` for one ad). It captures every ratio at 2x with the
    installed Google Chrome (`PW_CHANNEL=chromium` uses Playwright's own build) and exits non-zero if any block
-   overflows or overlaps another.
+   overflows or overlaps another. Re-rendering an ad can move a few pixels of its other ratios by a level or two
+   (image scaling and text shadows); when only one ratio changed, `git checkout --` the others.
    For an animated ad, put the footage in the template as `<video class="clip" src="clip.mp4" data-poster-time="9.45">`
    (see `ads/PKY-0018/ad.html`): the PNG shows the frame at that second, and `ffmpeg` (on `PATH`) writes `<ratio>.mp4`,
    the page with the footage composited into the video's box. Keep every other block clear of that box.
