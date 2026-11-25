@@ -2,11 +2,30 @@
 
 Ad creatives for [pokayoke](https://pokayoke.sh) by EZO Labs Security, and the public page that shows them.
 
-**Viewer:** https://singularitystudiosdev.github.io/pokayoke-ads/ (GitHub Pages, served from `main`).
+**Viewer:** https://kiltrokills.github.io/pokayoke-ads/ (GitHub Pages on the mirror `KiltroKills/pokayoke-ads`).
 It shows one ad, its ID, a Download button and a 16:9 / 4:5 / 9:16 switch. Link a specific ad and frame with
 `?id=PKY-0001&ratio=9x16`.
 
-This repo is public: anything pushed to `main` is published.
+`singularitystudiosdev/pokayoke-ads` is the main copy. GitHub has flagged that account (Actions off, repos hidden
+from the public), so Pages publishes from the mirror; once the flag is lifted the same workflow also serves
+https://singularitystudiosdev.github.io/pokayoke-ads/. Both repos are public: anything pushed to `main` is published.
+
+## Publish
+
+Push `main` to both remotes; `.github/workflows/pages.yml` deploys on every push.
+
+```sh
+git push origin main
+git push kiltro main
+```
+
+The `kiltro` remote signs in as the KiltroKills account through `gh`, without storing a token. Set it up once per clone:
+
+```sh
+git remote add kiltro https://KiltroKills@github.com/KiltroKills/pokayoke-ads.git
+git config credential.https://KiltroKills@github.com.helper \
+  '!f() { test "$1" = get && echo username=KiltroKills && echo "password=$(gh auth token --user KiltroKills)"; }; f'
+```
 
 ## Ads
 
