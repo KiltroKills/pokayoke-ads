@@ -47,6 +47,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-16);
+  min-height: var(--bar-h);
   padding: var(--space-12) var(--space-24);
   background: var(--page);
   border-bottom: 1px solid var(--line);
@@ -64,28 +65,7 @@ body {
 .title svg { width: 20px; height: 20px; }
 a.title { color: inherit; text-decoration: none; }
 
-/* Page links beside the name: Ads and Meme bank. The current page is underlined. */
-.pages { display: flex; gap: var(--space-4); margin-right: auto; }
-.pages a {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--control-h);
-  padding: 0 var(--space-8);
-  border-radius: var(--radius-control);
-  color: var(--text-muted);
-  font-weight: 500;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.pages a:hover { color: var(--text); }
-.pages a[aria-current="page"] {
-  color: var(--text);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
-}
-a.title:focus-visible,
-.pages a:focus-visible {
+a.title:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
@@ -181,10 +161,8 @@ body[data-ratio="9x16"] .ad-missing { aspect-ratio: 9 / 16; }
 .empty a { color: var(--text); font-weight: 600; }
 
 @media (max-width: 480px) {
-  /* Ads page: name and page links on the first line, the ratio switch below them. */
-  body[data-ratio] { --bar-h: calc(var(--control-h) * 2 + var(--space-12) * 3 + 1px); }
-  .bar { flex-wrap: wrap; gap: var(--space-12); padding: var(--space-12) var(--space-16); }
-  .pages { margin-right: 0; }
+  /* The name and the ratio switch share one line down to 320px wide; tighter padding keeps them there. */
+  .bar { gap: var(--space-12); padding: var(--space-12) var(--space-16); }
   .ratios button { min-width: var(--control-h); padding: 0 var(--space-8); }
   .gallery { padding: var(--space-16); gap: var(--space-24); }
 }
