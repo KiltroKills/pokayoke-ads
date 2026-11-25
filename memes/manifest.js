@@ -9,8 +9,8 @@
 // pick:     a top pick, shown first in its category
 // ad:       the ad ID once the meme has been made into an ad (ads/<id>/)
 // proof:    a post in the same format that developers upvoted, as evidence the format lands (points as counted on `counted`)
-// No imgflip ID: a screenshot format we rebuilt ourselves in memes/formats/formats.html (`npm run meme-formats`);
-// `source` is the post that inspired it.
+// No imgflip ID: a screenshot format we rebuilt ourselves in memes/formats/formats.html (`npm run meme-formats`),
+// or a photo the user supplied, saved straight to memes/img/<slug>.webp.
 window.POKAYOKE_MEME_CATEGORIES = [
   { id: 'protection', label: 'Little protection' },
   { id: 'stupid', label: 'Doing something stupid' },
@@ -992,9 +992,29 @@ window.POKAYOKE_MEMES = [
     },
   },
 
-  // Terminator: the machine that protects you, with the bottom text "Have them on your side."
+  // Photos the user supplied
   {
     id: 'MEME-54',
+    slug: 'taped-hook',
+    name: 'Safety harness clipped to a taped-on hook',
+    alt: 'A security-camera still of a worker on a high ledge, his harness line clipped to a hook held to the wall with clear tape.',
+    category: 'protection',
+    angle: 'A prompt as protection',
+    pick: true,
+    fit: 'Harness on, line clipped in, and the anchor is a hook stuck to the wall with tape.',
+    panels: [
+      ['Caption', '"No exploits in my repo. Make no mistakes."'],
+      ['The taped hook', 'The prompt holding everything up'],
+    ],
+    line: "A prompt isn't a safety line. pokayoke attacks every push and runs an exploit against what it finds.",
+    ad: 'PKY-0013',
+    rights: 'free',
+    rightsNote: 'A security-camera still of a real worker, owner unknown: restage it with a model, safely on the ground, for paid ads.',
+  },
+
+  // Terminator: the machine that protects you, with the bottom text "Have them on your side."
+  {
+    id: 'MEME-55',
     slug: 't2-bodyguard',
     name: 'Terminator 2 bodyguard (motorcycle)',
     alt: 'The T-800 in sunglasses on a motorcycle, aiming a shotgun past the camera, with the boy he protects riding behind him.',
@@ -1013,7 +1033,7 @@ window.POKAYOKE_MEMES = [
     rightsNote: 'A Terminator 2 film still of Arnold Schwarzenegger (the still the user supplied; no imgflip template): skip for paid ads unless licensed.',
   },
   {
-    id: 'MEME-55',
+    id: 'MEME-56',
     slug: 't2-minigun',
     imgflip: 66899831,
     name: 'Terminator minigun',
@@ -1031,7 +1051,7 @@ window.POKAYOKE_MEMES = [
     rightsNote: 'A Terminator 2 film still of Arnold Schwarzenegger: skip for paid ads unless licensed.',
   },
   {
-    id: 'MEME-56',
+    id: 'MEME-57',
     slug: 'terminator-vision',
     name: 'Terminator vision (rebuilt)',
     alt: 'A red machine-vision view of a login handler: a target locked on its SQL query, and a response list ending on "send fix privately".',
@@ -1050,7 +1070,7 @@ window.POKAYOKE_MEMES = [
     rightsNote: 'Our own red HUD over our own code: no film frame, character or logo.',
   },
   {
-    id: 'MEME-57',
+    id: 'MEME-58',
     slug: 'talk-to-the-hand',
     imgflip: 76808011,
     name: 'Talk to the hand (Terminator 3)',

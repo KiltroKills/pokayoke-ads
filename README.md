@@ -31,9 +31,10 @@ git config credential.https://KiltroKills@github.com.helper \
 
 | ID | Message | Files |
 |---|---|---|
-| PKY-0012 | Terminator vision, built by us: a red HUD locks onto an SQL injection and picks "send fix privately". Bottom text "Have them on your side." (meme bank MEME-56, free to run) | [`ads/PKY-0012/`](ads/PKY-0012/) |
-| PKY-0011 | Terminator 2 minigun still, the T-800 labelled pokayoke. Bottom text "Have them on your side." (MEME-55; film still, not for paid ads unless licensed) | [`ads/PKY-0011/`](ads/PKY-0011/) |
-| PKY-0010 | Terminator 2 motorcycle still, the T-800 labelled pokayoke and the boy labelled your repo. Bottom text "Have them on your side." (MEME-54; film still, not for paid ads unless licensed) | [`ads/PKY-0010/`](ads/PKY-0010/) |
+| PKY-0013 | "No exploits in my repo. Make no mistakes." over a worker whose harness is clipped to a hook taped to the wall, the hook circled (meme bank MEME-54) | [`ads/PKY-0013/`](ads/PKY-0013/) |
+| PKY-0012 | Terminator vision, built by us: a red HUD locks onto an SQL injection and picks "send fix privately". Bottom text "Have them on your side." (meme bank MEME-57, free to run) | [`ads/PKY-0012/`](ads/PKY-0012/) |
+| PKY-0011 | Terminator 2 minigun still, the T-800 labelled pokayoke. Bottom text "Have them on your side." (MEME-56; film still, not for paid ads unless licensed) | [`ads/PKY-0011/`](ads/PKY-0011/) |
+| PKY-0010 | Terminator 2 motorcycle still, the T-800 labelled pokayoke and the boy labelled your repo. Bottom text "Have them on your side." (MEME-55; film still, not for paid ads unless licensed) | [`ads/PKY-0010/`](ads/PKY-0010/) |
 | PKY-0009 | "Found. Verified. Disclosed." over the pokayoke.sh finding strip stood up as a list: score chip, severity, repo and advisory ID for five findings (seven in 9:16) from its public disclosure record | [`ads/PKY-0009/`](ads/PKY-0009/) |
 | PKY-0008 | The "Paste into your agent" card from pokayoke.sh in its dark theme: the line to paste and the blue Copy button | [`ads/PKY-0008/`](ads/PKY-0008/) |
 | PKY-0007 | The pokayoke.sh hero: "Find exploits before attackers do." and its three blue ticks (GitHub App, proven or not, private fix) | [`ads/PKY-0007/`](ads/PKY-0007/) |
@@ -48,9 +49,9 @@ Each ad folder holds its source (`ad.html`) and one PNG per ratio: `16x9.png` (1
 
 ## Make or change an ad
 
-1. Copy `ads/PKY-0001/` to the next unused ID (`ads/PKY-0007/`) and edit its `ad.html`. One template serves all three
+1. Copy `ads/PKY-0001/` to the next unused ID (one past the highest folder in `ads/`) and edit its `ad.html`. One template serves all three
    ratios through `html[data-ratio]`.
-2. `npm install`, then `npm run render` (or `npm run render -- PKY-0007`). It captures every ratio at 2x with the
+2. `npm install`, then `npm run render` (or `npm run render -- PKY-00NN` for one ad). It captures every ratio at 2x with the
    installed Google Chrome (`PW_CHANNEL=chromium` uses Playwright's own build) and exits non-zero if any block
    overflows or overlaps another.
 3. Add it to the top of `ads/manifest.js` (ID and alt text); the gallery shows every entry in that order.
@@ -85,5 +86,5 @@ To add a meme, add an entry to `memes/manifest.js` (its imgflip template ID, cap
 `npm run memes`. It saves the blank template as `memes/img/<slug>.webp` (at most 480x720, needs ImageMagick) and
 writes every image's size to `memes/sizes.js`; `npm run memes -- --force` downloads them all again. For a format we
 rebuild ourselves, add a `.card` with the slug as its `id` to `memes/formats/formats.html`, leave out `imgflip`,
-and run `npm run meme-formats` before `npm run memes`. A still that is on neither (MEME-54, supplied by the user) is
+and run `npm run meme-formats` before `npm run memes`. A still that is on neither (MEME-54 and MEME-55, supplied by the user) is
 saved by hand as `memes/img/<slug>.webp`, at most 480x720, with no `imgflip` on its entry.

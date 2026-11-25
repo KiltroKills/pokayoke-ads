@@ -53,6 +53,7 @@ window.POKAYOKE_MEME_SIZES = {
   "sharing-is-caring": [480, 330],
   "coding-2022-2027": [480, 458],
   "agent-env": [480, 350],
+  "taped-hook": [480, 274],
   "t2-bodyguard": [480, 304],
   "t2-minigun": [480, 270],
   "terminator-vision": [480, 361],
