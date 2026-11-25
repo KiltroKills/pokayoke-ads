@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en" data-ratio="16x9">
+<head>
+<meta charset="utf-8">
+<title>pokayoke ad PKY-0001</title>
+<script>
+  // Rendered by scripts/render.mjs once per ratio: ?ratio=16x9 | 4x5 | 9x16
+  const ratio = new URLSearchParams(location.search).get('ratio');
+  if (['16x9', '4x5', '9x16'].includes(ratio)) document.documentElement.dataset.ratio = ratio;
+</script>
+<link rel="stylesheet" href="../../brand/tokens.css">
+<style>
+  /* Frame sizes are CSS px; render.mjs captures at 2x (1920x1080, 1080x1350, 1080x1920). */
+  :root {
+    --frame-w: 960px;
+    --frame-h: 540px;
+    --pad: var(--space-48);
+    --h1: 48px;
+    --h1-track: -1.8px;
+    --mark: 40px;
+    --wordmark: 26px;
+    --byline: 14px;
+    --step-title: 15px;
+    --body: 13px;
+    --count: 104px;
+    --count-label: 22px;
+    --marker: 24px;
+    --step-gap: var(--space-12);
+  }
+  [data-ratio="4x5"] {
+    --frame-w: 540px;
+    --frame-h: 675px;
+    --pad: var(--space-32);
+    --h1: 38px;
+    --h1-track: -1.4px;
+    --mark: 34px;
+    --wordmark: 22px;
+    --byline: 12px;
+    --step-title: 14px;
+    --body: 12px;
+    --count: 88px;
+    --count-label: 19px;
+    --marker: 22px;
+    --step-gap: var(--space-8);
+  }
+  [data-ratio="9x16"] {
+    --frame-w: 540px;
+    --frame-h: 960px;
+    --pad: var(--space-40);
+    --h1: 50px;
+    --h1-track: -2px;
+    --mark: 44px;
+    --wordmark: 28px;
+    --byline: 14px;
+    --step-title: 16px;
+    --body: 13px;
+    --count: 132px;
+    --count-label: 24px;
+    --marker: 26px;
+    --step-gap: var(--space-16);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--color-canvas); }
+  body {
+    width: var(--frame-w);
+    height: var(--frame-h);
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  p, h1, h2, ol { margin: 0; padding: 0; }
+  .mono { font-family: var(--font-mono); }
+
+  .ad {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: var(--pad);
+    display: grid;
+    gap: var(--space-24);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: "lockup" "pitch" "steps" "cta";
+  }
+  [data-ratio="16x9"] .ad {
+    column-gap: var(--space-48);
+    row-gap: var(--space-24);
+    grid-template-columns: 1fr 424px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "lockup steps" "pitch steps" "cta steps";
+  }
+  [data-ratio="9x16"] .ad { row-gap: var(--space-32); }
+
+  /* Lockup: the mark and wordmark from pokayoke.sh */
+  .lockup { grid-area: lockup; display: flex; align-items: center; gap: var(--space-12); }
+  .lockup svg { width: var(--mark); height: var(--mark); flex: none; }
+  .wordmark { font-size: var(--wordmark); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .byline { margin-top: var(--space-4); font-size: var(--byline); font-weight: 500; color: var(--color-muted); line-height: 1.2; }
+
+  .pitch { grid-area: pitch; align-self: center; }
+  h1 {
+    font-size: var(--h1);
+    font-weight: 800;
+    letter-spacing: var(--h1-track);
+    line-height: 1.04;
+  }
+  /* One sentence per block, so a line never breaks between "repo." and "Know" */
+  h1 span { display: block; text-wrap: balance; }
+  .sub {
+    margin-top: var(--space-16);
+    max-width: 34ch;
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--color-muted);
+    text-wrap: pretty;
+  }
+  /* Portrait frames: the result note carries the proof line instead */
+  [data-ratio="4x5"] .sub,
+  [data-ratio="9x16"] .sub { display: none; }
+
+  /* Steps: a real sequence, so the numbered rail encodes order */
+  .steps {
+    grid-area: steps;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--step-gap);
+    min-height: 0;
+  }
+  .step {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--marker) 1fr;
+    column-gap: var(--space-12);
+    row-gap: var(--space-8);
+    align-items: center;
+  }
+  .step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--marker) / 2 - 0.5px);
+    top: var(--marker);
+    bottom: calc(-1 * var(--step-gap));
+    width: 1px;
+    background: var(--color-hairline);
+  }
+  .marker {
+    width: var(--marker);
+    height: var(--marker);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--color-ink);
+    color: var(--color-on-ink);
+    font-size: calc(var(--marker) * 0.5);
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+  }
+  h2 { font-size: var(--step-title); font-weight: 650; letter-spacing: -0.01em; }
+  .panel { grid-column: 2; }
+
+  /* 1. Link: a repo field */
+  .repo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-12) var(--space-16);
+    background: var(--color-surface);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-surface);
+    font-size: var(--body);
+  }
+  .repo .gh { width: 20px; height: 20px; flex: none; color: var(--color-ink); }
+  .repo-name { font-weight: 600; white-space: nowrap; }
+  .branch {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-2) var(--space-8);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-control);
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+  .branch svg { width: 12px; height: 12px; }
+  .linked {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-family: var(--font-display);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .linked svg { width: 14px; height: 14px; }
+
+  /* 2. Scan: the Map, Hunt, Prove pipeline as a log */
+  .scan {
+    padding: var(--space-12) var(--space-16);
+    background: var(--color-surface);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-surface);
+    font-size: var(--body);
+    display: grid;
+    gap: var(--space-8);
+  }
+  .log-row { display: grid; grid-template-columns: 16px 56px 1fr auto; align-items: center; gap: var(--space-8); }
+  .log-row svg { width: 14px; height: 14px; }
+  .log-row .stage-name { font-weight: 600; }
+  .log-row .detail { color: var(--color-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .log-row .n { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--color-ink); justify-self: center; }
+  .bar { height: 6px; border-radius: 9999px; background: var(--color-hairline); overflow: hidden; margin-top: var(--space-2); }
+  .bar span { display: block; height: 100%; width: 82%; border-radius: 9999px; background: var(--color-ink); }
+  [data-ratio="4x5"] .scan { gap: var(--space-6); }
+
+  /* 3. Result: the one clear number */
+  .step-result { flex: 1; align-items: start; grid-template-rows: auto 1fr; }
+  .step-result .marker { align-self: center; }
+  .result {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--space-24);
+    padding: var(--space-16) var(--space-24);
+    background: var(--color-ink);
+    color: var(--color-on-ink);
+    border-radius: var(--radius-surface);
+  }
+  .count {
+    font-size: var(--count);
+    font-weight: 800;
+    line-height: 0.82;
+    letter-spacing: -0.04em;
+    color: var(--color-critical);
+    font-variant-numeric: tabular-nums;
+  }
+  .count-label { font-size: var(--count-label); font-weight: 750; letter-spacing: -0.02em; line-height: 1.1; }
+  .count-note { margin-top: var(--space-8); font-size: var(--body); line-height: 1.45; color: var(--color-on-ink-muted); max-width: 28ch; }
+  [data-ratio="9x16"] .result { flex-direction: column; align-items: flex-start; justify-content: center; gap: var(--space-20); padding: var(--space-32); }
+  [data-ratio="9x16"] .count-note { font-size: 14px; }
+
+  /* CTA */
+  .cta { grid-area: cta; display: flex; align-items: center; gap: var(--space-16); }
+  .button {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-12) var(--space-20);
+    border-radius: var(--radius-control);
+    background: var(--color-accent);
+    color: var(--color-surface);
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .url { font-size: 14px; color: var(--color-muted); }
+  [data-ratio="9x16"] .button { font-size: 17px; padding: var(--space-16) var(--space-24); }
+  [data-ratio="9x16"] .url { font-size: 16px; }
+</style>
+</head>
+<body>
+<main class="ad">
+  <header class="lockup">
+    <svg viewBox="1 1 22 22" aria-hidden="true"><path d="M8.1 3.9A9 9 0 0 0 8.1 20.1M15.9 3.9A9 9 0 0 1 15.9 20.1" fill="none" stroke="#111212" stroke-width="3" stroke-linecap="round"/><circle cx="12" cy="12" r="3.5" fill="#0B59FE"/></svg>
+    <div>
+      <p class="wordmark">pokayoke</p>
+      <p class="byline">by EZO Labs Security</p>
+    </div>
+  </header>
+
+  <section class="pitch">
+    <h1><span>Link your repo.</span> <span>Know what's critical.</span></h1>
+    <p class="sub">pokayoke runs an exploit against every finding it can, so you know which bugs are real.</p>
+  </section>
+
+  <ol class="steps">
+    <li class="step">
+      <span class="marker">1</span>
+      <h2>Link your GitHub repo</h2>
+      <div class="panel repo">
+        <svg class="gh" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        <span class="repo-name mono">acme/payments-api</span>
+        <span class="branch mono"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M15 6a9 9 0 0 0-9 9V3"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/></g></svg>main</span>
+        <span class="linked"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 6L9 17l-5-5"/></svg>Linked</span>
+      </div>
+    </li>
+
+    <li class="step">
+      <span class="marker">2</span>
+      <h2>Scan for vulnerabilities</h2>
+      <div class="panel scan mono">
+        <div class="log-row"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 6L9 17l-5-5"/></svg><span class="stage-name">Map</span><span class="detail">entry points indexed</span><span class="n">412</span></div>
+        <div class="log-row"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 6L9 17l-5-5"/></svg><span class="stage-name">Hunt</span><span class="detail">source to sink paths</span><span class="n">38</span></div>
+        <div class="log-row"><span class="pulse"></span><span class="stage-name">Prove</span><span class="detail">running exploits</span><span class="n">31/38</span></div>
+        <div class="bar"><span></span></div>
+      </div>
+    </li>
+
+    <li class="step step-result">
+      <span class="marker">3</span>
+      <h2>Get one clear number</h2>
+      <div class="panel result">
+        <span class="count">3</span>
+        <div>
+          <p class="count-label">critical vulnerabilities</p>
+          <p class="count-note">Each one proven with a working exploit, fix included.</p>
+        </div>
+      </div>
+    </li>
+  </ol>
+
+  <footer class="cta">
+    <span class="button">Scan your repo free</span>
+    <span class="url mono">pokayoke.sh</span>
+  </footer>
+</main>
+</body>
+</html>

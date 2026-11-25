@@ -1,0 +1,13 @@
+{
+  "name": "pokayoke-ads",
+  "private": true,
+  "type": "module",
+  "description": "pokayoke ad creatives and their public viewer page",
+  "scripts": {
+    "render": "node scripts/render.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.1",
+    "playwright": "^1.65.1"
+  }
+}
