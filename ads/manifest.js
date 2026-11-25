@@ -3,7 +3,7 @@
 window.POKAYOKE_ADS = [
   {
     id: 'PKY-0013',
-    alt: 'pokayoke ad. The caption, in quotes like a prompt: "No exploits in my repo. Make no mistakes." Below it, a security-camera still of a worker on a high ledge whose harness line is clipped to a hook held to the wall with clear tape, the hook circled in red. A prompt isn\'t a safety line. pokayoke attacks every push and runs an exploit against what it finds. Find exploits before attackers do. pokayoke.sh',
+    alt: 'pokayoke ad. The caption, in quotes like a prompt: "No exploits in my repo. Make no mistakes." With it, a security-camera still of a worker on a high ledge whose harness line is clipped to a hook held to the wall with clear tape, the hook circled in red. The pokayoke logo, by EZO Labs Security, sits in the bottom left corner of the photo.',
   },
   {
     id: 'PKY-0012',

@@ -31,7 +31,7 @@ git config credential.https://KiltroKills@github.com.helper \
 
 | ID | Message | Files |
 |---|---|---|
-| PKY-0013 | "No exploits in my repo. Make no mistakes." over a worker whose harness is clipped to a hook taped to the wall, the hook circled (meme bank MEME-54) | [`ads/PKY-0013/`](ads/PKY-0013/) |
+| PKY-0013 | "No exploits in my repo. Make no mistakes." over a worker whose harness is clipped to a hook taped to the wall, the hook circled, and only the pokayoke lockup on the photo, bottom left (meme bank MEME-54) | [`ads/PKY-0013/`](ads/PKY-0013/) |
 | PKY-0012 | Terminator vision, built by us: a red HUD locks onto an SQL injection and picks "send fix privately". Bottom text "Have them on your side." (meme bank MEME-57, free to run) | [`ads/PKY-0012/`](ads/PKY-0012/) |
 | PKY-0011 | Terminator 2 minigun still, the T-800 labelled pokayoke. Bottom text "Have them on your side." (MEME-56; film still, not for paid ads unless licensed) | [`ads/PKY-0011/`](ads/PKY-0011/) |
 | PKY-0010 | Terminator 2 motorcycle still, the T-800 labelled pokayoke and the boy labelled your repo. Bottom text "Have them on your side." (MEME-55; film still, not for paid ads unless licensed) | [`ads/PKY-0010/`](ads/PKY-0010/) |
