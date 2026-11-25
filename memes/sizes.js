@@ -57,5 +57,7 @@ window.POKAYOKE_MEME_SIZES = {
   "t2-bodyguard": [480, 304],
   "t2-minigun": [480, 270],
   "talk-to-the-hand": [480, 274],
+  "terminator-army-invading": [480, 300],
+  "terminator-killer-robot": [480, 270],
   "vicious-cycle": [480, 263]
 };

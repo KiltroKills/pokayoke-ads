@@ -1069,6 +1069,39 @@ window.POKAYOKE_MEMES = [
     rightsNote: 'A Terminator 3 film still of Arnold Schwarzenegger: skip for paid ads unless licensed.',
   },
 
+  // Terminator army: the machines are coming, with nothing on it but "Stay Safe."
+  {
+    id: 'MEME-59',
+    slug: 'terminator-army-invading',
+    imgflip: 530426257,
+    name: 'Terminator robots invading',
+    alt: 'An army of chrome robot skeletons with red eyes marching out of blue smoke, the nearest ones carrying miniguns.',
+    category: 'owned',
+    angle: 'Automated attackers',
+    pick: true,
+    fit: 'Attacks run as machines now, thousands at once and never tired. Two words are the whole ad.',
+    panels: [['Bottom text', 'Stay Safe.']],
+    line: 'pokayoke attacks every push first, so the machines find nothing left to exploit.',
+    ad: 'PKY-0015',
+    rights: 'ask',
+    rightsNote: 'A Terminator film still: skip for paid ads unless licensed.',
+  },
+  {
+    id: 'MEME-60',
+    slug: 'terminator-killer-robot',
+    imgflip: 163081354,
+    name: 'Terminator killer robot (T2 future war)',
+    alt: 'A chrome robot skull with glowing red eyes in close-up, an army of robot skeletons marching through the smoke behind it.',
+    category: 'owned',
+    angle: 'Automated attackers',
+    fit: 'One machine staring you down, its army right behind it. Two words are the whole ad.',
+    panels: [['Bottom text', 'Stay Safe.']],
+    line: 'pokayoke attacks every push first, so the machines find nothing left to exploit.',
+    ad: 'PKY-0016',
+    rights: 'ask',
+    rightsNote: 'The Terminator 2 opening, a film still: skip for paid ads unless licensed.',
+  },
+
   // An animated GIF, not an imgflip template: the still is the GIF's last scene, saved from i.redd.it/foqe2bvzbi8a1.gif.
   {
     id: 'MEME-62',
